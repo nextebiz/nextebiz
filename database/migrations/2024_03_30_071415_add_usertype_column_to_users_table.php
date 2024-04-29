@@ -18,10 +18,9 @@ return new class extends Migration
             $table->string('phone')->default('');
             $table->string('city')->default('');
             $table->string('country')->default('');
-            $table->longText('profile')->default('');
+            $table->longText('profile')->nullable();
             $table->string('resume_file')->default('');
             $table->boolean('enabled')->default(1);
-
         });
     }
 
@@ -31,7 +30,14 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('users', function (Blueprint $table) {
-            //
+            $table->dropColumn('user_type');
+            $table->dropColumn('picture');
+            $table->dropColumn('phone');
+            $table->dropColumn('city');
+            $table->dropColumn('country');
+            $table->dropColumn('profile');
+            $table->dropColumn('resume_file');
+            $table->dropColumn('enabled');
         });
     }
 };
