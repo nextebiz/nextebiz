@@ -9,10 +9,8 @@ import { resolvePageComponent } from "laravel-vite-plugin/inertia-helpers";
 import { createPinia } from "pinia";
 import { ZiggyVue } from "../../vendor/tightenco/ziggy";
 
-
 import CKEditor from "@ckeditor/ckeditor5-vue";
 const appName = import.meta.env.VITE_APP_NAME || "Laravel";
-
 
 createInertiaApp({
     title: (title) => `${title} - ${appName}`,
