@@ -1,0 +1,21 @@
+<template>
+    <AuthenticatedLayout>
+        <div class="container m-auto">
+            <h1>Contact</h1>
+            <h1>Contact</h1>
+            <h1>Contact</h1>
+        </div>
+    </AuthenticatedLayout>
+</template>
+
+<script setup>
+import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout.vue"
+import { onMounted } from "vue";
+import { initFlowbite, initModals } from 'flowbite'
+
+onMounted(() => {
+    initFlowbite();
+})
+</script>
+
+<style lang="scss" scoped></style>
