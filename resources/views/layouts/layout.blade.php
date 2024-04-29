@@ -29,7 +29,7 @@
     <meta name="twitter:title" content="@yield('title')">
     <meta name="twitter:site" content="@nextebiz" />
 
-    @vite(['resources/js/header.js', 'resources/scss/app.scss'])
+    @vite(['resources/scss/app.scss'])
 
 </head>
 
