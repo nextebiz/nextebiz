@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('slug')->unique();
             $table->boolean('featured')->default(0);
             $table->boolean('enabled')->default(1);
-            $table->text('small_description')->default('');
+            $table->text('small_description')->nullable();
             $table->longText('description');
             $table->json('cities');
             $table->string('job_type')->default('Full-time'); // 'Part-time', 'Contract'
