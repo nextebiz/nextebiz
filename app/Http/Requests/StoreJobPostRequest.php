@@ -26,6 +26,7 @@ class StoreJobPostRequest extends FormRequest
             'title' => ['required'],
             'featured' => ['required'],
             'description' => ['required'],
+            'small_description' => ['required'],
             'cities' => ['required'],
             'job_type' => ['required'],
             'working_hours' => ['required'],

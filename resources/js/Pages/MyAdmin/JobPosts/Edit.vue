@@ -18,6 +18,7 @@ const form = useForm({
     slug: props.jobpost.slug,
     featured: props.jobpost.featured === 1 ? true : false,
     description: props.jobpost.description,
+    small_description: props.jobpost.small_description,
     cities: props.jobpost.cities.toString(),
     job_type: props.jobpost.job_type,
     working_hours: props.jobpost.working_hours,
@@ -29,7 +30,6 @@ function submitCategory() {
 }
 
 function updateDescription(description) {
-    // console.log('i am parent', description)
     form.description = description;
 }
 
@@ -147,6 +147,18 @@ onMounted(() => {
 
                                 </div>
                             </div>
+
+                            <div class="mb-5">
+                                <label for="small_description" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Small Description</label>
+
+                                  <textarea id="small_description" v-model="form.small_description"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></textarea>
+
+                                  <div v-if="props.errors?.small_description" class="form_error">{{ props.errors?.small_description }}</div>
+
+                            </div>
+
+
                             <div class="mb-5">
                                 <label for="description" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Job Description</label>
 

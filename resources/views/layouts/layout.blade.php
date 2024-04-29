@@ -39,8 +39,6 @@
 
     @include('layouts.nav')
 
-    <div>img: {{ config('app.url') }}/assets/img/jobs.jpg</div>
-
     @yield('content')
 
     @include('layouts.footer')

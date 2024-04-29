@@ -18,6 +18,7 @@ const form = useForm({
     slug: '',
     featured: false,
     description: '',
+    small_description: '',
     cities: '',
     job_type: '',
     working_hours: '',
@@ -139,12 +140,19 @@ onMounted(() => {
                                         <option value="10">10</option>
                                     </select>
                                     <div v-if="props.errors?.candidates_required" class="form_error">{{ props.errors?.candidates_required }}</div>
-
                                 </div>
-
                             </div>
 
 
+                            <div class="mb-5">
+                                <label for="small_description" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Small Description</label>
+
+                                  <textarea id="small_description" v-model="form.small_description"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></textarea>
+
+                                  <div v-if="props.errors?.small_description" class="form_error">{{ props.errors?.small_description }}</div>
+
+                            </div>
 
                             <div class="mb-5">
                                 <label for="description" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Job Description</label>

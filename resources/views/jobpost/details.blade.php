@@ -97,6 +97,6 @@
 @endsection
 
 @section('title', $jobpost->title)
-@section('description', $jobpost->description)
+@section('description', $jobpost->small_description)
 @section('created_at', $jobpost->created_at)
 @section('image_url', '/assets/img/nextebiz-black.svg')

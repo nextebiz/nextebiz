@@ -20,7 +20,7 @@ class JobPost extends Model
 
     public $table = 'jobposts';
 
-    protected $fillable = ['job_category_id', 'title', 'slug', 'featured', 'description', 'cities', 'job_type', 'working_hours', 'candidates_required'];
+    protected $fillable = ['job_category_id', 'title', 'slug', 'featured', 'description','small_description', 'cities', 'job_type', 'working_hours', 'candidates_required'];
     protected $casts = [
         'cities' => 'array'
     ];
