@@ -10,15 +10,17 @@
                 <div class="flex items-center lg:order-2 space-x-1 lg:space-x-2 rtl:space-x-reverse">
 
                     <Link href="/login" class="nav-link-top flex" v-if="$page.props.auth?.user == null">
-                    <span class="mr-2">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="mt-1 w-3 dark:fill-orange-600">
-                            <path
-                                d="M144 144c0-44.2 35.8-80 80-80c31.9 0 59.4 18.6 72.3 45.7c7.6 16 26.7 22.8 42.6 15.2s22.8-26.7 15.2-42.6C331 33.7 281.5 0 224 0C144.5 0 80 64.5 80 144v48H64c-35.3 0-64 28.7-64 64V448c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V256c0-35.3-28.7-64-64-64H144V144z" />
-                        </svg>
-                    </span>
-                    <span>
-                        Sign In
-                    </span>
+                    <div class="flex items-center">
+                        <span class="mr-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="mt-1 w-3 dark:fill-orange-600">
+                                <path
+                                    d="M144 144c0-44.2 35.8-80 80-80c31.9 0 59.4 18.6 72.3 45.7c7.6 16 26.7 22.8 42.6 15.2s22.8-26.7 15.2-42.6C331 33.7 281.5 0 224 0C144.5 0 80 64.5 80 144v48H64c-35.3 0-64 28.7-64 64V448c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V256c0-35.3-28.7-64-64-64H144V144z" />
+                            </svg>
+                        </span>
+                        <span>
+                            Sign In
+                        </span>
+                    </div>
                     </Link>
 
                     <div class="flex sm:items-center sm:ms-6" v-if="$page.props.auth?.user !== null">
@@ -73,35 +75,35 @@
                 <div id="mega-menu" class="items-center justify-between hidden w-full lg:flex lg:w-auto lg:order-1">
                     <ul class="flex flex-col mt-4 bg-gray-100 dark:bg-gray-900 lg:bg-transparent  rounded-lg font-medium lg:flex-row lg:mt-0 lg:space-x-8 rtl:space-x-reverse">
 
-                         <!-- <li class="border-b-2 lg:border-0 border-b-gray-200 dark:border-b-gray-700">
+                        <!-- <li class="border-b-2 lg:border-0 border-b-gray-200 dark:border-b-gray-700">
                             <Link href="/about" class="nav-link-top">
 
                             About
                             </Link>
                         </li> -->
-                         <li class="border-b-2 lg:border-0 border-b-gray-200 dark:border-b-gray-700">
+                        <li class="border-b-2 lg:border-0 border-b-gray-200 dark:border-b-gray-700">
                             <Link href="/expertise" class="nav-link-top">
 
                             Expertise
                             </Link>
                         </li>
-                         <li class="border-b-2 lg:border-0 border-b-gray-200 dark:border-b-gray-700">
+                        <li class="border-b-2 lg:border-0 border-b-gray-200 dark:border-b-gray-700">
                             <Link href="/engage-team" class="nav-link-top">
 
                             Engage Team
                             </Link>
                         </li>
-                         <li class="border-b-2 lg:border-0 border-b-gray-200 dark:border-b-gray-700">
+                        <li class="border-b-2 lg:border-0 border-b-gray-200 dark:border-b-gray-700">
                             <Link href="/open-positions" class="nav-link-top">
                             Open Positions
                             </Link>
                         </li>
-                         <li class="border-b-2 lg:border-0 border-b-gray-200 dark:border-b-gray-700">
+                        <li class="border-b-2 lg:border-0 border-b-gray-200 dark:border-b-gray-700">
                             <Link href="/portfolio" class="nav-link-top">
                             Portfolio
                             </Link>
                         </li>
-                         <li class="border-b-2 lg:border-0 border-b-gray-200 dark:border-b-gray-700">
+                        <li class="border-b-2 lg:border-0 border-b-gray-200 dark:border-b-gray-700">
                             <Link href="/contact" class="nav-link-top">
                             Contact Us
                             </Link>
