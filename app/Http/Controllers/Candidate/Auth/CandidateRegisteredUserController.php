@@ -2,14 +2,18 @@
 
 namespace App\Http\Controllers\Candidate\Auth;
 
+use Carbon\Carbon;
 use App\Models\User;
 use Inertia\Inertia;
 use Inertia\Response;
 use App\Models\Country;
+use App\Models\JobPost;
+use App\Jobs\SendEmailJob;
+use App\Models\JobpostUser;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rules;
 use App\Http\Controllers\Controller;
-use App\Models\JobpostUser;
+use App\Jobs\SendWelcomeEmailJob;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\RedirectResponse;
@@ -34,6 +38,9 @@ class CandidateRegisteredUserController extends Controller
     public function store(Request $request): RedirectResponse
     {
 
+        $datetime = new \DateTime('now');
+        $date =  Carbon::parse($datetime)->format('d-m-y-H-i-s');
+
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|string|lowercase|email|max:255|unique:' . User::class,
@@ -47,19 +54,7 @@ class CandidateRegisteredUserController extends Controller
 
         $jobpostid =  $request->input('jobpostid');
 
-
-
         $filename = '-';
-
-        if ($request->file('resume_file')->isValid()) {
-            // Generate a unique filename
-            $filename = uniqid() . '.' . $request->file('resume_file')->getClientOriginalExtension();
-
-            // Save the file to the "resume" folder within the storage directory
-            $path = $request->file('resume_file')->storeAs('public/resume', $filename);
-
-            // File has been uploaded successfully
-        }
 
         $user = User::create([
             'name' => $request->name,
@@ -67,9 +62,30 @@ class CandidateRegisteredUserController extends Controller
             'password' => Hash::make($request->password),
             'phone' => $request->phone,
             'country' => $request->country,
-            'resume_file' => $filename
-            // 'enabled' => 0
         ]);
+
+        if ($request->file('resume_file')->isValid()) {
+
+            $user->addMediaFromRequest("resume_file")->toMediaCollection('docs', 'media');
+        }
+        $role = $user->assignRole('candidate');
+
+        event(new Registered($user));
+
+        $subject = "Welcome to " . config('app.company') . " - Your Journey Starts Here!";
+
+        $content = "<p>Welcome aboard! We are thrilled to have you join " . config('app.company') . ", where innovation and technology converge to create meaningful solutions.</p>";
+        $content .= "<p>As a technology-based company, we are constantly pushing the boundaries of what's possible, and we're excited to embark on this journey with you.</p>";
+        $content .= "<p>Your decision to apply for a position with us reflects your passion for technology and your desire to be a part of something truly transformative. We believe that your skills and expertise will contribute significantly to our mission of transforming ideas into impactful solutions.</p>";
+        $content .= "<p>Here at " . config('app.company') . ", we foster a culture of collaboration, creativity, and continuous learning. We encourage you to bring your unique perspectives and ideas to the table, as we work together to solve complex challenges and drive innovation forward.</p>";
+        $content .= "<p>To get started, please take a moment to explore our website and familiarize yourself with our products, services, and company culture. You can also connect with us on our social media channels to stay updated on the latest news and events.</p>";
+        $content .= "<p>If you have any questions or need assistance at any point during the application process, please don't hesitate to reach out to us. We're here to support you every step of the way.</p>";
+        $content .= "<p>Once again, welcome to the " . config('app.company') . " family! We're excited to see where this journey takes us together.</p>";
+
+        dispatch(new SendWelcomeEmailJob($user, $subject, $content));
+
+        Auth::login($user);
+
 
         if ($jobpostid > 0) {
 
@@ -79,14 +95,20 @@ class CandidateRegisteredUserController extends Controller
                 'jobpost_id' => $jobpostid,
                 'user_id' => $user->id
             ]);
+
+            $jobpost = JobPost::where('id', '=', $jobpostid)->first();
+
+            $user = Auth::user();
+            $subject = "Your Successful Application for " . $jobpost->title;
+
+            $content = "<p>I hope this email finds you well.</p>";
+            $content .= "<p>We are writing to confirm the successful submission of your application for the position of " . $jobpost->title . ". We have received your application and are currently reviewing it carefully.</p>";
+            $content .= "<p>Should your qualifications and experience align with our requirements, we will reach out to you to discuss the next steps in the hiring process. In the meantime, please feel free to reach out if you have any questions or need further assistance.</p>";
+            $content .= "<p>We appreciate your interest in joining our team and look forward to the possibility of working together.</p>";
+            $content .= "<a class='' href='" . config('app.url') . "/jobs/" . $jobpost->slug . "'>View Job: " . $jobpost->title . "</a>";
+
+            dispatch(new SendEmailJob($user, $subject, $content));
         }
-
-
-        $role = $user->assignRole('candidate');
-
-        event(new Registered($user));
-
-        Auth::login($user);
 
         return redirect(route('candidate.index', absolute: false));
     }

@@ -25,6 +25,11 @@ class StoreJobCategoryRequest extends FormRequest
             'title' => ['required'],
             'min' => ['required'],
             'max' => ['required'],
+            'monthly' => ['required'],
+            'quarterly' => ['required'],
+            'picture'=>['nullable'],
+            'small_description'=>['required'],
+            'description'=>['required'],
             'enabled' => ['required'],
         ];
     }

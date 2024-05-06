@@ -17,6 +17,7 @@ return new class extends Migration
 
             $table->foreign('jobpost_id')->references('id')->on('jobposts');
             $table->foreign('user_id')->references('id')->on('users');
+            $table->timestamps();
         });
     }
 

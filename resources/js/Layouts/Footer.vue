@@ -8,10 +8,15 @@
                     <a href="https://nextebiz.com" class="flex items-center space-x-3 rtl:space-x-reverse">
                         <img :src="theme === 'dark' ? '/assets/img/nextebiz-white.svg' : '/assets/img/nextebiz-black.svg'" class="h-14" alt="Nextebiz Logo" />
                     </a>
+                    <div class="max-w-[500px] mt-5">
+                        At Next eBiz, we're dedicated to pushing the boundaries of technology and innovation. With expertise spanning Laravel, React, Vue, and Flutter, we craft dynamic applications that propel businesses
+                        forward. Partner with us to unlock the full potential of your
+                        digital endeavors and stay ahead in today's rapidly evolving landscape.
+                    </div>
                 </div>
                 <div class="grid grid-cols-3 gap-2 sm:gap-12 sm:grid-cols-3">
                     <!-- <div>
-                        <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Best Tech Stack</h2>
+                        <h4 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Best Tech Stack</h4>
                         <ul class="text-gray-500 dark:text-gray-400 font-medium">
                             <li class="mb-4">
                                 <a href="#" class="hover:underline">Laravel / Vue / MySql</a>
@@ -28,17 +33,15 @@
                         </ul>
                     </div> -->
                     <div>
-                        <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">About</h2>
+                        <h4 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">About</h4>
                         <ul class="text-gray-500 dark:text-gray-400 font-medium">
-                            <li class="mb-4">
-                                <Link href="/about" class="hover:underline">About Next eBiz</Link>
-                            </li>
+
                             <li class="mb-4">
                                 <Link href="/expertise" class="hover:underline">Expertise</Link>
                             </li>
-                            <li class="mb-4">
+                            <!-- <li class="mb-4">
                                 <Link href="/engage-team" class="hover:underline">Engage Team</Link>
-                            </li>
+                            </li> -->
 
                             <li class="mb-4">
                                 <Link href="/portfolio" class="hover:underline">Portfolio</Link>
@@ -47,13 +50,13 @@
                         </ul>
                     </div>
                     <div>
-                        <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Join Us</h2>
+                        <h4 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Join Us</h4>
                         <ul class="text-gray-500 dark:text-gray-400 font-medium">
                             <li class="mb-4">
                                 <Link href="/open-positions" class="hover:underline">Open Positions</Link>
                             </li>
                             <li class="mb-4">
-                                <Link href="/open-positions" class="hover:underline">Upload Resume</Link>
+                                <Link href="/candidate/register" class="hover:underline">Upload Resume</Link>
                             </li>
                             <li class="mb-4">
                                 <Link href="/contact" class="hover:underline">Contact Us</Link>
@@ -65,16 +68,26 @@
             </div>
             <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
             <div class="sm:flex sm:items-center sm:justify-between">
-                <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© {{ new Date().getFullYear() }} <a href="https://nextebiz.com/" class="hover:underline">Next eBiz</a>. All Rights Reserved.
-                </span>
+                <div class="flex items-center text-sm text-gray-500 sm:text-center dark:text-gray-400">
+                    <span class="">© {{ new Date().getFullYear() }} <a href="https://nextebiz.com/" class="hover:underline">Next eBiz</a>.
+                    </span>
+                    <span class="ms-2">Site made with</span>
+                    <div class="w-[20px] mx-2 fill-red-500">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                            <path
+                                d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z" />
+                        </svg>
+                    </div>
+                    <span>in Laravel + Vue by 'Imran Malik'</span>
+                </div>
                 <div class="flex mt-4 sm:justify-center sm:mt-0">
                     <a href="#" class="text-gray-500 hover:text-gray-900 dark:hover:text-white">
                         <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 8 19">
-                            <path fill-rule="evenodd" d="M6.135 3H8V0H6.135a4.147 4.147 0 0 0-4.142 4.142V6H0v3h2v9.938h3V9h2.021l.592-3H5V3.591A.6.6 0 0 1 5.592 3h.543Z" clip-rule="evenodd" />
+                            <path fill-rule="evenodd" d="M6.135 3H8V0H6.135a4.147 4.147 0 0 0-4.142 4.142V6H0v3h4v9.938h3V9h4.021l.592-3H5V3.591A.6.6 0 0 1 5.592 3h.543Z" clip-rule="evenodd" />
                         </svg>
                         <span class="sr-only">Facebook page</span>
                     </a>
-                    <a href="#" class="text-gray-500 hover:text-gray-900 dark:hover:text-white ms-5">
+                    <!-- <a href="#" class="text-gray-500 hover:text-gray-900 dark:hover:text-white ms-5">
                         <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 21 16">
                             <path
                                 d="M16.942 1.556a16.3 16.3 0 0 0-4.126-1.3 12.04 12.04 0 0 0-.529 1.1 15.175 15.175 0 0 0-4.573 0 11.585 11.585 0 0 0-.535-1.1 16.274 16.274 0 0 0-4.129 1.3A17.392 17.392 0 0 0 .182 13.218a15.785 15.785 0 0 0 4.963 2.521c.41-.564.773-1.16 1.084-1.785a10.63 10.63 0 0 1-1.706-.83c.143-.106.283-.217.418-.33a11.664 11.664 0 0 0 10.118 0c.137.113.277.224.418.33-.544.328-1.116.606-1.71.832a12.52 12.52 0 0 0 1.084 1.785 16.46 16.46 0 0 0 5.064-2.595 17.286 17.286 0 0 0-2.973-11.59ZM6.678 10.813a1.941 1.941 0 0 1-1.8-2.045 1.93 1.93 0 0 1 1.8-2.047 1.919 1.919 0 0 1 1.8 2.047 1.93 1.93 0 0 1-1.8 2.045Zm6.644 0a1.94 1.94 0 0 1-1.8-2.045 1.93 1.93 0 0 1 1.8-2.047 1.918 1.918 0 0 1 1.8 2.047 1.93 1.93 0 0 1-1.8 2.045Z" />
@@ -104,7 +117,7 @@
                                 clip-rule="evenodd" />
                         </svg>
                         <span class="sr-only">Dribbble account</span>
-                    </a>
+                    </a> -->
                 </div>
             </div>
         </div>

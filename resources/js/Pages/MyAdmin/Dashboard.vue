@@ -31,7 +31,19 @@ onMounted(() => {
                         <div class=" text-gray-900 dark:text-white ">
                             <div class=" bg-gray-200 dark:bg-gray-800 p-6 rounded-lg ">
                                 <h4 class="mb-3">Job Categories</h4>
-                                <Link class="btn-dark" :href="route('myadmin.jobcategories.index')">Go to Job Categories</Link>
+                                <Link class="btn-dark" :href="route('myadmin.jobcategories.index')">See Job Categories</Link>
+                            </div>
+                        </div>
+                        <div class=" text-gray-900 dark:text-white ">
+                            <div class=" bg-gray-200 dark:bg-gray-800 p-6 rounded-lg ">
+                                <h4 class="mb-3">Portfolio</h4>
+                                <Link class="btn-dark" :href="route('myadmin.portfolio.index')">Go To Portfolio</Link>
+                            </div>
+                        </div>
+                        <div class=" text-gray-900 dark:text-white ">
+                            <div class=" bg-gray-200 dark:bg-gray-800 p-6 rounded-lg ">
+                                <h4 class="mb-3">Portfolio Categories</h4>
+                                <Link class="btn-dark" :href="route('myadmin.portfoliocategories.index')">See Portfolio Categories</Link>
                             </div>
                         </div>
                         <div class=" text-gray-900 dark:text-white ">

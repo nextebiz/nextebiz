@@ -15,8 +15,8 @@ const props = defineProps({
     <Head title="Register" />
     <AuthenticatedLayout>
         <div class="container m-auto my-[0px] sm:my-[50px]">
-            <div class="grid grid-cols-1 lg:grid-cols-2 bg-gray-100 p-4 sm:p-10 pb-[50px]">
-                <div class="border-r-0 lg:border-r-2 mb-5 lg:mb-0 pr-5 py-[30px] sm:py-[0px]">
+            <div class="grid grid-cols-1 lg:grid-cols-2 bg-gray-100 dark:text-white dark:bg-gray-900 p-4 sm:p-10 pb-[50px]">
+                <div class="border-r-0 lg:border-r-2 border-gray-200 dark:border-gray-600 mb-5 lg:mb-0 pr-5 py-[30px] sm:py-[0px]">
                     <div class="mb-5 w-fit ">
                         <Link href="/login" class="">
                         <div class="flex border border-gray-400 hover:border-indigo-500 w-fit px-4 py-2 rounded-lg ">

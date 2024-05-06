@@ -3,7 +3,19 @@
 }
 
 .btn-orange {
-    @apply bg-orange-600 text-white px-5 py-2 rounded-lg hover:bg-orange-800 transition-all;
+    @apply bg-orange-500 text-white px-5 py-2 rounded-lg hover:bg-orange-600 transition-all;
+}
+
+.btn-green {
+    @apply bg-green-500 text-white px-5 py-2 rounded-lg hover:bg-green-600 transition-all;
+}
+
+.btn-gray {
+    @apply bg-gray-200 text-gray-600 px-5 py-1 rounded-lg hover:bg-gray-300 transition-all;
+}
+
+.link-orange{
+    @apply text-orange-500 hover:text-orange-600 transition-all;
 }
 
 .nav-link-top {
@@ -29,31 +41,47 @@
 }
 .ck-editor__editable {
     min-height: 300px;
- }
+}
 
+.slide{
+    // height: calc(100vh - 300px) !important;
+    @apply bg-gray-200 h-screen dark:bg-gray-700;
+    img{
+        height: calc(100vh - 200px) !important;
+    }
+}
 
+.slide-thumb {
+    @apply bg-gray-300 dark:bg-gray-900 p-2;
+    img{
+        height: 100px !important;
+    }
+    :hover{
+        @apply bg-orange-500 transition-all;
+    }
+}
 
 body, html{
     @apply ubuntu-light;
 }
 .ckclass {
     h1 {
-        @apply text-3xl md:text-4xl lg:text-5xl ubuntu-bold mb-4;
+        @apply text-3xl md:text-4xl lg:text-5xl ubuntu-bold;
     }
     h2{
-        @apply text-2xl md:text-3xl lg:text-4xl ubuntu-bold mb-4;
+        @apply text-2xl md:text-3xl lg:text-4xl ubuntu-bold;
      }
      h3{
-        @apply text-xl md:text-2xl lg:text-3xl ubuntu-bold mb-4;
+        @apply text-xl md:text-2xl lg:text-3xl ubuntu-bold ;
      }
      h4{
-        @apply text-lg md:text-xl lg:text-2xl ubuntu-bold mb-4;
+        @apply text-lg md:text-xl lg:text-2xl ubuntu-bold;
      }
      h5{
-        @apply text-lg lg:text-lg ubuntu-bold mb-4;
+        @apply text-lg lg:text-lg ubuntu-bold;
      }
      h6{
-        @apply text-lg ubuntu-bold mb-4;
+        @apply text-lg ubuntu-bold;
      }
 }
 
@@ -62,6 +90,15 @@ body, html{
 }
 
 .myck {
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        @apply mb-4;
+    };
     ul{
         @apply list-none ms-2 sm:ms-10 mb-3;
         li{

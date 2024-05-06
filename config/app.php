@@ -14,7 +14,14 @@ return [
     */
 
     'name' => env('APP_NAME', 'Laravel'),
-
+    'email' => env('FROM_EMAIL', 'info@nextebiz.com'),
+    'sales_email' => env('SALES_EMAIL', 'imran@nextebiz.com'),
+    'company' => env('COMPANY_NAME', 'Next ebiz'),
+    'owner' => env('OWNER_NAME', 'Imran Malik'),
+    'whatsapp' => env('WHATSAPP', '+923361633321'),
+    'whatsapp2' => env('WHATSAPP2', '+92314661771'),
+    'designation' => env('DESIGNATION', 'CEO'),
+    'address' => env('ADDRESS', 'Islamabad, Pakistan'),
     /*
     |--------------------------------------------------------------------------
     | Application Environment

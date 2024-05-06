@@ -25,11 +25,13 @@
     <meta property="og:image:url" content="{{ config('app.url') }}/assets/img/jobs.jpg">
     <meta property="og:image:width" content="300" />
     <meta property="og:image:height" content="300" />
+    <meta property="og:image:alt" content="@yield('title')">
 
 
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="@yield('title')">
     <meta name="twitter:site" content="@nextebiz" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
     @vite(['resources/scss/app.scss'])
 

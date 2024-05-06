@@ -7,8 +7,8 @@
                 <img src="{{ url('/assets/img/nextebiz-black.svg') }}" class="h-10 sm:h-14" alt="Nextebiz Logo" />
             </a>
 
-            <div id="mega-menu" class="items-center justify-between hidden w-full lg:flex lg:w-auto lg:order-1">
-                <ul class="flex flex-col mt-4 bg-gray-100 dark:bg-gray-900 lg:bg-transparent  rounded-lg font-medium lg:flex-row lg:mt-0 lg:space-x-8 rtl:space-x-reverse">
+            <div id="mega-menu" class="items-center justify-between   flex w-auto order-1">
+                <ul class="flex  mt-4 bg-gray-100 dark:bg-gray-900 lg:bg-transparent  rounded-lg font-medium space-x-8 rtl:space-x-reverse">
 
                     <li class="border-b-2 lg:border-0 border-b-gray-200 dark:border-b-gray-700">
                         <a href="/" class="nav-link-top">

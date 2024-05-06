@@ -21,21 +21,22 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         RedirectIfAuthenticated::redirectUsing(function ($request) {
-            // if ($request->user()) {
-            //     $role = $request->user()->getRoleNames()[0];
 
-            //     if ($role === 'admin') {
-            //         return route('myadmin.index');
-            //     }
-            //     if ($role === 'candidate') {
-            //         return route('candidate.index');
-            //     }
-            //     if ($role === 'employer') {
-            //         return route('employer.index');
-            //     }
+            if ($request->user()) {
+                $role = $request->user()->getRoleNames()[0];
 
-            //     return abort(404);
-            // }
+                if ($role === 'admin') {
+                    return route('myadmin.index');
+                }
+                if ($role === 'candidate') {
+                    return route('candidate.index');
+                }
+                if ($role === 'employer') {
+                    return route('employer.index');
+                }
+
+                return abort(404);
+            }
         });
     }
 }

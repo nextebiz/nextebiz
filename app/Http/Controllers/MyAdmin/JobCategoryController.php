@@ -33,12 +33,24 @@ class JobCategoryController extends Controller
     public function store(StoreJobCategoryRequest $request)
     {
 
-        JobCategory::create([
+        $picture = $request->file('picture');
+
+        $jobcategory = JobCategory::create([
             'title' => $request->input('title'),
             'min' => $request->input('min'),
             'max' => $request->input('max'),
+            'monthly' => $request->input('monthly'),
+            'quarterly' => $request->input('quarterly'),
+            'small_description' => $request->input('small_description'),
+            'description' => $request->input('description'),
             'enabled' => $request->input('enabled'),
         ]);
+
+        if ($jobcategory) {
+            if ($picture) {
+                $jobcategory->addMediaFromRequest('picture')->toMediaCollection("images", 'media_jobcategory');
+            }
+        }
 
         return to_route('myadmin.jobcategories.index');
     }
@@ -57,7 +69,14 @@ class JobCategoryController extends Controller
      */
     public function edit(JobCategory $jobcategory)
     {
-        return Inertia::render('MyAdmin/JobCategories/Edit')->with(['jobcategory' => $jobcategory]);
+        $media = '';
+
+        $find_media = $jobcategory->getFirstMediaUrl('images');
+        if ($find_media) {
+            $media = $find_media;
+        }
+
+        return Inertia::render('MyAdmin/JobCategories/Edit')->with(['jobcategory' => $jobcategory, 'media' => $media]);
     }
 
     /**
@@ -65,12 +84,32 @@ class JobCategoryController extends Controller
      */
     public function update(UpdateJobCategoryRequest $request, JobCategory $jobcategory)
     {
+
+        $picture = $request->file('picture');
+
         $jobcategory->update([
             'title' => $request->input('title'),
             'min' => $request->input('min'),
             'max' => $request->input('max'),
+            'monthly' => $request->input('monthly'),
+            'quarterly' => $request->input('quarterly'),
+            'small_description' => $request->input('small_description'),
+            'description' => $request->input('description'),
             'enabled' => $request->input('enabled'),
         ]);
+
+        if ($jobcategory) {
+            if ($picture) {
+
+                $media = $jobcategory->getFirstMedia('images');
+                if ($media) {
+                    $media->delete();
+                }
+
+                $jobcategory->addMediaFromRequest('picture')->toMediaCollection("images", 'media_jobcategory');
+            }
+        }
+
 
         return to_route('myadmin.jobcategories.index');
     }

@@ -1,5 +1,26 @@
+<script setup>
+import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout.vue"
+import { onMounted } from "vue";
+import { initFlowbite, initModals } from 'flowbite'
+import FeaturedJobs from '@/Components/FeaturedJobs.vue'
+import { Head } from "@inertiajs/vue3";
+
+const props = defineProps({
+    'categories': Object,
+    'jobpostuser': Array
+
+})
+
+onMounted(() => {
+    initFlowbite();
+})
+</script>
 <template>
+
+    <Head title="Open Positions" />
+
     <AuthenticatedLayout>
+
         <div class="container m-auto px-5">
             <div class="dark:text-white myck my-[50px]">
                 <h2>We are Hiring!</h2>
@@ -22,13 +43,7 @@
                         Competitive Benefits: Enjoy competitive salaries, comprehensive benefits packages, and perks designed to enhance your work-life balance.
                     </li>
                 </ul>
-                <h4>Who We're Looking For:
-                </h4>
-                <p>
-                    We're seeking passionate individuals with a drive for excellence and a desire to make a difference. Whether you're a seasoned developer, a creative designer, or a strategic thinker, we have
-                    opportunities
-                    for you to shine.
-                </p>
+
                 <h4>How to Apply:
                 </h4>
                 <p>
@@ -40,25 +55,12 @@
 
         </div>
         <div>
-            <FeaturedJobs :categories="categories" full="full"></FeaturedJobs>
+            <FeaturedJobs :categories="categories" full="full" :jobpostuser="jobpostuser"></FeaturedJobs>
         </div>
 
     </AuthenticatedLayout>
 </template>
 
-<script setup>
-import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout.vue"
-import { onMounted } from "vue";
-import { initFlowbite, initModals } from 'flowbite'
-import FeaturedJobs from '@/Components/FeaturedJobs.vue'
 
-const props = defineProps({
-    'categories': Object
-})
-
-onMounted(() => {
-    initFlowbite();
-})
-</script>
 
 <style lang="scss" scoped></style>

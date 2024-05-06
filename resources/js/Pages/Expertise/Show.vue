@@ -1,0 +1,214 @@
+<script setup>
+import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout.vue"
+import { onMounted } from "vue";
+import { initFlowbite } from 'flowbite'
+import { Head, Link, useForm } from "@inertiajs/vue3";
+import Nav from "./Nav.vue";
+import FeaturedJobs from '@/Components/FeaturedJobs.vue'
+import IndustriesVue from "./Industries.vue";
+import Idea from "./Idea.vue";
+
+const props = defineProps({
+    jobcategories: Object,
+    jobcategory: Object,
+    'categories': Object,
+    'jobpostuser': Array
+})
+const form = useForm({
+    selected_category: 1
+})
+function changeSelectedCategory(id) {
+    console.log('hi')
+    form.selected_category = id
+}
+onMounted(() => {
+    initFlowbite();
+})
+</script>
+<template>
+
+    <Head title="Our Expertise"></Head>
+
+    <AuthenticatedLayout>
+        <div class="container m-auto my-[50px] px-0 dark:text-white">
+            <!-- drawer component -->
+            <div id="drawer-example" class="pt-[100px] fixed top-0 left-0 z-40 h-screen p-4 overflow-y-auto transition-transform -translate-x-full bg-white w-80 dark:bg-gray-800" tabindex="-1"
+                aria-labelledby="drawer-label">
+
+                <button type="button" data-drawer-hide="drawer-example" aria-controls="drawer-example"
+                    class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 absolute top-2.5 end-2.5 flex items-center justify-center dark:hover:bg-gray-600 dark:hover:text-white">
+                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                    </svg>
+                    <span class="sr-only">Close menu</span>
+                </button>
+
+
+                <div class="grid grid-cols-2 gap-4">
+                    <Nav :jobcategories="jobcategories" :jobcategory="jobcategory" />
+
+                </div>
+            </div>
+
+            <div class="flex w-full ">
+                <div class="hidden lg:block ">
+                    <Nav :jobcategories="jobcategories" :jobcategory="jobcategory" />
+                </div>
+                <div class="px-3 md:px-5">
+
+                    <div class="flex items-center mb-3 ">
+                        <div class="text-center block lg:hidden">
+                            <button class="text-white bg-gray-200 hover:bg-gray-300  rounded-md px-3 py-2 mr-3 " type="button" data-drawer-target="drawer-example" data-drawer-show="drawer-example"
+                                aria-controls="drawer-example">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="w-[20px]">
+                                    <path
+                                        d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z" />
+                                </svg>
+                            </button>
+                        </div>
+                        <Link href="/expertise">
+                        <div class="flex items-center link-orange">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="w-[16px] fill-orange-500 mr-2">
+                                <path
+                                    d="M512 256A256 256 0 1 0 0 256a256 256 0 1 0 512 0zM271 135c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-87 87 87 87c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0L167 273c-9.4-9.4-9.4-24.6 0-33.9L271 135z" />
+                            </svg>
+                            <span class="">
+                                Expertise
+                            </span>
+                        </div>
+                        </Link>
+                    </div>
+
+
+                    <h1 class="mb-5">{{ jobcategory.title }}</h1>
+
+                    <div class="myck mb-5">
+                        <div v-html="jobcategory.description"></div>
+                    </div>
+                    <div class=" w-full p-0 mb-5">
+                        <button @click="changeSelectedCategory(jobcategory.id)" data-modal-target="crud-modal" data-modal-toggle="crud-modal" class="w-full" type="button">
+                            <div class=" text-xl bg-gray-200 dark:bg-gray-800 py-2 border border-gray-300 dark:border-gray-600 dark:hover:bg-gray-900 hover:border-red-500 hover:text-orange-600 transition-all">
+                                Starting from ${{ jobcategory.min }} / Hour
+                                <span class="text-orange-500 px-2 py-1">
+                                    Hire {{ jobcategory.title }}
+                                </span>
+                            </div>
+                        </button>
+                    </div>
+                    <div class="mb-[50px]" v-if="categories[0].job_posts.length > 0">
+                        <FeaturedJobs :categories="categories" :jobpostuser="jobpostuser"></FeaturedJobs>
+                    </div>
+
+                    <div class="mb-[50px]">
+                        <h2 class="my-5 text-center">Hire {{ jobcategory.title }}</h2>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <div class="border text-center border-gray-300 dark:border-gray-600 py-10 px-5">
+                                <h2 class="font-bold text-orange-500">Hourly</h2>
+                                <h5>Staring From</h5>
+                                <div class="text-5xl py-[20px] font-bold flex justify-center"><span class="text-2xl">$</span>
+                                    <span>{{ Math.floor(jobcategory.min) }}</span>
+                                </div>
+                                <p>The model works well when you have a short-term project, need specialized service, or have a specific task to be completed.
+                                </p>
+                            </div>
+                            <div class="border text-center border-gray-300 dark:border-gray-600 py-10 px-5">
+                                <h2 class="font-bold text-orange-500">Monthly</h2>
+                                <h5>Staring From</h5>
+                                <div class="text-5xl py-[20px] font-bold flex justify-center"><span class="text-2xl">$</span>
+                                    <span>{{ Math.floor(jobcategory.monthly) }}</span>
+                                </div>
+                                <p>The model works well when you have a short-term project, need specialized service, or have a specific task to be completed.
+                                </p>
+                            </div>
+                            <div class="border text-center border-gray-300 dark:border-gray-600 py-10 px-5">
+                                <h2 class="font-bold text-orange-500">Quarterly</h2>
+                                <h5>Staring From</h5>
+                                <div class="text-5xl py-[20px] font-bold flex justify-center"><span class="text-2xl">$</span>
+                                    <span>{{ Math.floor(jobcategory.quarterly) }}</span>
+                                </div>
+                                <p>The model works well when you have a short-term project, need specialized service, or have a specific task to be completed.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="text-center mb-[50px]">
+                        <h2 class="mb-5">Perks Of Hiring A Dedicated Team</h2>
+                        <p class="text-xl">
+                            A team that is inclined towards one goal and is dedicated to utilizing every means to achieve the goal makes it easier for the imagination to become a reality. The dedicated team ensures
+                            tremendous growth, effective communication, continuous analysis, rapid error fixing, transparency, integrity, and effective solution.
+                        </p>
+                    </div>
+
+                    <div class="mb-5">
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 ">
+                            <div class="border border-gray-300 dark:border-gray-600 p-5 text-center bg-orange-50">
+                                <h4 class="mb-5 ">Guaranteed Outcome
+                                </h4>
+                                <p>A team with proven expertise is highly reliable in terms of project delivery.
+                                </p>
+                            </div>
+                            <div class="border border-gray-300 dark:border-gray-600 p-5 text-center bg-green-50">
+                                <h4 class="mb-5">Quick Turnaround Time
+
+                                </h4>
+                                <p>
+                                    The commitment to the project increases the on-time delivery of the project.
+                                </p>
+                            </div>
+                            <div class="border border-gray-300 dark:border-gray-600 p-5 text-center bg-fuchsia-50">
+                                <h4 class="mb-5">
+                                    Increased Productivity
+                                </h4>
+                                <p>
+                                    A shared common goal and the ability to achieve it enhances productivity
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-5">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 ">
+                            <div class="border border-gray-300 dark:border-gray-600 p-5 text-center col-start-1  bg-blue-50">
+                                <h4 class="mb-5">
+                                    Extended Support
+
+                                </h4>
+                                <p>
+                                    The team has the back of the project at every development stage
+
+                                </p>
+                            </div>
+                            <div class="border border-gray-300 dark:border-gray-600 p-5 text-center  bg-red-50">
+                                <h4 class="mb-5">Focus on your business
+
+                                </h4>
+                                <p>
+                                    You can dedicate your time to the core function of your business.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <Idea  :jobcategories="jobcategories" />
+                    <div class="text-center py-[50px] px-5">
+                        <h2 class="mb-5">
+                            Our Industry-Specific Experience
+                        </h2>
+                        <p class="mb-5">
+                            Next eBiz has consistently delivered top-notch software & mobile solutions over the past 15 years, providing unmatched service. We are committed to delivering tech solutions that not only meet
+                            but exceed your industry guidelines, adhere to standards compliance, and fulfill all your requirements. When you hire our team, you’ll benefit from their extensive experience working across a
+                            wide range of global industries.
+                        </p>
+                        <IndustriesVue />
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+    </AuthenticatedLayout>
+</template>
+
+
+<style lang="scss" scoped></style>

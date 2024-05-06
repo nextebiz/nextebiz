@@ -5,8 +5,12 @@ import FeaturedJobs from '@/Components/FeaturedJobs.vue'
 import { Head } from '@inertiajs/vue3';
 import { onMounted, onUnmounted } from "vue"
 
+import IndustriesVue from './Expertise/Industries.vue';
+import Idea from "@/Pages/Expertise/Idea.vue";
+
 const props = defineProps({
-    'categories': Array
+    categories: Array,
+    jobpostuser: Array
 })
 
 onMounted(() => {
@@ -170,7 +174,7 @@ onUnmounted(() => {
             </div>
 
             <div>
-                <FeaturedJobs :categories="categories"></FeaturedJobs>
+                <FeaturedJobs :categories="categories" :jobpostuser="jobpostuser"></FeaturedJobs>
             </div>
 
             <div class="py-8 px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6">
@@ -268,6 +272,24 @@ onUnmounted(() => {
                 </div>
             </div>
         </section>
+        <section class="client-logo dark:text-white bg-gray-100 dark:bg-gray-700 py-[50px] pt-[100px]">
+            <div class="container m-auto px-5 text-center">
+                <h3 class="mb-10">Innovative Solutions, Global Impact: Empowering Businesses Worldwide</h3>
+                <div class=" text-xl mb-10 ">
+                    Embark on a digital journey with our innovative software company, where we craft bespoke solutions tailored to your needs. From cutting-edge software development to captivating app creations and
+                    strategic digital marketing, we redefine excellence in multiple industries worldwide. Join hands with us to unlock the full potential of your business and soar to new heights of success.
+                </div>
+                <IndustriesVue />
+            </div>
+        </section>
+
+
+        <section class="client-logo bg-gray-100 dark:bg-gray-700 py-[100px]">
+            <div class=" m-auto  ">
+                <Idea :jobcategories="props.categories" />
+            </div>
+        </section>
+
 
         <section class="client-logo bg-gray-100 dark:bg-gray-700 py-[100px]">
             <div class="container m-auto px-5 ">

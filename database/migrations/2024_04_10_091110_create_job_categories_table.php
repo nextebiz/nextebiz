@@ -14,8 +14,13 @@ return new class extends Migration
         Schema::create('job_categories', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->decimal('min', 5, 2);
-            $table->decimal('max', 5, 2);
+            $table->string('slug');
+            $table->decimal('min', 8, 2);
+            $table->decimal('max', 8, 2);
+            $table->decimal('monthly', 8, 2)->default(0);
+            $table->decimal('quarterly', 8, 2)->default(0);
+            $table->longText('small_description')->nullable();
+            $table->longText('description')->nullable();
             $table->boolean('enabled')->default(1);
             $table->timestamps();
         });

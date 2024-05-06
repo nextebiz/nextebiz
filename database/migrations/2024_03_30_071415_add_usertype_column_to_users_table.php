@@ -14,7 +14,6 @@ return new class extends Migration
         Schema::table('users', function (Blueprint $table) {
 
             $table->string('user_type')->default(''); //admin, candidate, employer
-            $table->string('picture')->default('');
             $table->string('phone')->default('');
             $table->string('city')->default('');
             $table->string('country')->default('');
@@ -31,7 +30,6 @@ return new class extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->dropColumn('user_type');
-            $table->dropColumn('picture');
             $table->dropColumn('phone');
             $table->dropColumn('city');
             $table->dropColumn('country');

@@ -3,7 +3,7 @@
 @section('content')
 
 
-    <div class="container m-auto my-[50px] ckclass myck">
+    <div class="container m-auto my-[50px] ckclass myck px-5">
 
         <div class="block md:flex justify-between border-b border-b-orange-500 pb-3 mb-3">
             <h1 class="mb-3 ">{{ $jobpost->title }}</h1>
@@ -89,7 +89,7 @@
 
         <div class="flex items-center justify-between">
             <div class="my-[20px]">
-                <a href="/jobs/{{ $jobpost->slug }}" class="bg-orange-500 px-5 py-2 text-white">Apply Now</a>
+                <a href="/jobs/{{ $jobpost->slug }}" class="btn-orange">Apply Now</a>
             </div>
 
         </div>

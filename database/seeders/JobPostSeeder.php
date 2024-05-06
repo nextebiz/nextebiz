@@ -17,8 +17,20 @@ class JobPostSeeder extends Seeder
             'job_category_id' => 1,
             'title' => 'first job title',
             'featured' => true,
+            'small_description'=> 'Small Description',
             'description' => 'hello',
             'cities' => ['islamabad', 'lahore'],
+            'job_type' => 'custom',
+            'working_hours' => 'working hours',
+            'candidates_required' => 2
+        ]);
+        JobPost::create([
+            'job_category_id' => 1,
+            'title' => 'first job title 2',
+            'featured' => true,
+            'small_description'=> 'Small Description 2',
+            'description' => 'hello 2',
+            'cities' => ['islamabad', 'karachi'],
             'job_type' => 'custom',
             'working_hours' => 'working hours',
             'candidates_required' => 2
@@ -27,6 +39,7 @@ class JobPostSeeder extends Seeder
             'job_category_id' => 2,
             'title' => 'second job title',
             'featured' => true,
+            'small_description'=> 'Small Description',
             'description' => 'hello',
             'cities' => ['islamabad', 'karachi', 'dubai'],
             'job_type' => 'custom',
