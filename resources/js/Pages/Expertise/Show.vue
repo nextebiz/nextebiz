@@ -142,13 +142,13 @@ onMounted(() => {
 
                     <div class="mb-5">
                         <div class="grid grid-cols-1 md:grid-cols-3 gap-4 ">
-                            <div class="border border-gray-300 dark:border-gray-600 p-5 text-center bg-orange-50">
+                            <div class="border border-gray-300 dark:border-gray-600 p-5 text-center bg-orange-50 dark:bg-gray-900"   >
                                 <h4 class="mb-5 ">Guaranteed Outcome
                                 </h4>
                                 <p>A team with proven expertise is highly reliable in terms of project delivery.
                                 </p>
                             </div>
-                            <div class="border border-gray-300 dark:border-gray-600 p-5 text-center bg-green-50">
+                            <div class="border border-gray-300 dark:border-gray-600 p-5 text-center bg-green-50 dark:bg-gray-900">
                                 <h4 class="mb-5">Quick Turnaround Time
 
                                 </h4>
@@ -156,7 +156,7 @@ onMounted(() => {
                                     The commitment to the project increases the on-time delivery of the project.
                                 </p>
                             </div>
-                            <div class="border border-gray-300 dark:border-gray-600 p-5 text-center bg-fuchsia-50">
+                            <div class="border border-gray-300 dark:border-gray-600 p-5 text-center bg-fuchsia-50 dark:bg-gray-900">
                                 <h4 class="mb-5">
                                     Increased Productivity
                                 </h4>
@@ -168,7 +168,7 @@ onMounted(() => {
                     </div>
                     <div class="mb-5">
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 ">
-                            <div class="border border-gray-300 dark:border-gray-600 p-5 text-center col-start-1  bg-blue-50">
+                            <div class="border border-gray-300 dark:border-gray-600 p-5 text-center col-start-1  bg-blue-50 dark:bg-gray-900">
                                 <h4 class="mb-5">
                                     Extended Support
 
@@ -178,7 +178,7 @@ onMounted(() => {
 
                                 </p>
                             </div>
-                            <div class="border border-gray-300 dark:border-gray-600 p-5 text-center  bg-red-50">
+                            <div class="border border-gray-300 dark:border-gray-600 p-5 text-center  bg-red-50 dark:bg-gray-900">
                                 <h4 class="mb-5">Focus on your business
 
                                 </h4>
