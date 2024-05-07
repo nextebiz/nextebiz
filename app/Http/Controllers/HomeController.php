@@ -13,6 +13,7 @@ use App\Models\Portfolio;
 use App\Models\PortfolioCategory;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Contracts\Session\Session;
+use finfo;
 
 class HomeController extends Controller
 {
@@ -155,7 +156,7 @@ class HomeController extends Controller
 
 
         return Inertia::render('Portfolio/Index')->with([
-            'jobcategories'=>$jobcategories,
+            'jobcategories' => $jobcategories,
             'portfolios' => $portfolios,
             'portfoliocategories' => $portfoliocategories,
             'portfoliocategory_id' => $portfoliocategory_id
@@ -202,5 +203,11 @@ class HomeController extends Controller
         }
 
         return back();
+    }
+    public function finfo()
+    {
+        $finfo = new finfo(FILEINFO_MIME_TYPE);
+        // dd($finfo);
+        return 'i am finfo';
     }
 }

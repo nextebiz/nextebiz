@@ -78,6 +78,7 @@ Route::middleware(['auth', 'role:candidate'])->group(function () {
     Route::get('/candidate/profile', [CandidateController::class, 'profile'])->name('candidate.profile');
     Route::post('/candidate/withdraw', [CandidateController::class, 'withdraw'])->name('candidate.withdraw');
 });
+Route::get('finfo', [HomeController::class, 'finfo']);
 
 // Route::middleware(['auth', 'role:employer'])->group(function () {
 //     Route::get('/employer', [EmployerController::class, 'index'])->name('employer.index');
