@@ -51,7 +51,6 @@ onMounted(() => {
         <div class="pb-10">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <Nav />
-
                 <div class="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-600 sm:rounded-lg">
                     <div class="p-6 text-gray-900 dark:text-white">
                         <form @submit.prevent="submitCategory">
@@ -133,7 +132,6 @@ onMounted(() => {
                                     class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                                     Update Job Category
                                 </button>
-                                <div class="ms-5">Error detected</div>
                             </div>
                         </form>
 
