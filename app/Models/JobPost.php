@@ -50,11 +50,11 @@ class JobPost extends Model implements HasMedia
     {
         return $this->belongsToMany(User::class, 'jobpost_user', 'jobpost_id', 'user_id');
     }
-    public function registerMediaConversions(Media|null $media = null): void
-    {
-        $this
-            ->addMediaConversion('preview')
-            ->fit(Fit::Contain, 300, 300)
-            ->nonQueued();
-    }
+    // public function registerMediaConversions(Media|null $media = null): void
+    // {
+    //     $this
+    //         ->addMediaConversion('preview')
+    //         ->fit(Fit::Contain, 300, 300)
+    //         ->nonQueued();
+    // }
 }

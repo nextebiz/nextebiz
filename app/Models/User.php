@@ -67,11 +67,11 @@ class User extends Authenticatable implements HasMedia
         return $this->belongsToMany(JobPost::class, 'jobpost_user', 'user_id', 'jobpost_id');
     }
 
-    public function registerMediaConversions(Media|null $media = null): void
-    {
-        $this
-            ->addMediaConversion('preview')
-            ->fit(Fit::Contain, 300, 300)
-            ->nonQueued();
-    }
+    // public function registerMediaConversions(Media|null $media = null): void
+    // {
+    //     $this
+    //         ->addMediaConversion('preview')
+    //         ->fit(Fit::Contain, 300, 300)
+    //         ->nonQueued();
+    // }
 }

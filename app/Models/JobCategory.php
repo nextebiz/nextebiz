@@ -33,11 +33,11 @@ class JobCategory extends Model implements HasMedia
             ]
         ];
     }
-    public function registerMediaConversions(Media|null $media = null): void
-    {
-        $this
-            ->addMediaConversion('preview')
-            ->fit(Fit::Contain, 300, 300)
-            ->nonQueued();
-    }
+    // public function registerMediaConversions(Media|null $media = null): void
+    // {
+    //     $this
+    //         ->addMediaConversion('preview')
+    //         ->fit(Fit::Contain, 300, 300)
+    //         ->nonQueued();
+    // }
 }
