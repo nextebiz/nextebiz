@@ -59,14 +59,13 @@ return [
         'media' => [
             'driver' => 'local',
             'root'   => storage_path('app/public/media'),
-            'url'    => env('APP_URL') . '/storage/app/public/media',
+            'url'    => env('APP_URL') . '/storage/media',
             'visibility' => 'public',
         ],
-
         'media_jobcategory' => [
             'driver' => 'local',
             'root'   => storage_path('app/public/jobcategory'),
-            'url'    => env('APP_URL') . '/storage/app/public/jobcategory',
+            'url'    => env('APP_URL') . '/storage/jobcategory',
             'visibility' => 'public',
         ],
 

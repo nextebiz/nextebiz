@@ -31,8 +31,8 @@ const form = useForm({
 
 function submitCategory() {
     const post_url = `/myadmin/jobcategories/${props.jobcategory.slug}`;
-    console.log(post_url);
-    form.post(post_url, form.id);
+    form.post(post_url, { preserveScroll: true });
+    // form.post(post_url, form.id);
 }
 function updateDescription(description) {
     form.description = description;
@@ -47,9 +47,7 @@ onMounted(() => {
     <Head title="Edit New Job Category" />
 
     <AuthenticatedLayout>
-        {{ props.jobcategory?.slug }}
         <MenuButton title="Edit Job Category" />
-
         <div class="pb-10">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <Nav />
