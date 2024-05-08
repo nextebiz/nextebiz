@@ -11,6 +11,7 @@ use App\Jobs\SendWelcomeEmailJob;
 use App\Models\MessageBox;
 use App\Models\Portfolio;
 use App\Models\PortfolioCategory;
+use App\Rules\Recaptcha;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Contracts\Session\Session;
 use finfo;
@@ -35,8 +36,14 @@ class HomeController extends Controller
             return $query->where('featured', true);
         }])->get();
 
+        $jobcategories = JobCategory::with('media')->get();
 
-        return Inertia::render('Home')->with(['categories' => $categories, 'jobpostuser' => $jobpostuser]);
+
+        return Inertia::render('Home')->with([
+            'categories' => $categories,
+            'jobpostuser' => $jobpostuser,
+            'jobcategories' => $jobcategories
+        ]);
     }
     function expertise()
     {
@@ -74,6 +81,18 @@ class HomeController extends Controller
 
         // dd($request->all());
 
+        $request->validate([
+            'message_type' => ['required'],
+            'name' => ['required'],
+            'email' => ['required'],
+            'phone' => ['required'],
+            'category_id' => ['required'],
+            'category_name' => ['required'],
+            'message' => ['required'],
+            'captcha_token'  => [new Recaptcha],
+        ]);
+
+
         $url = request()->headers->get('referer');
         $message_type = $request->input('message_type');
         $name = $request->input('name');
@@ -84,6 +103,7 @@ class HomeController extends Controller
         $message = $request->input('message');
         $user_agent = $request->header('User-Agent');
         $ip = $request->ip();
+
 
         MessageBox::create([
             'url' => $url,
@@ -143,6 +163,7 @@ class HomeController extends Controller
         $portfolios = Portfolio::with(['media', 'portfolio_category' => function ($q) {
             return $q->select('id', 'title', 'enabled');
         }])->orderBy('id', 'desc')->paginate(10);
+
 
         if ($portfoliocategory_id) {
             $portfolios = Portfolio::with(['media', 'portfolio_category' => function ($q) {

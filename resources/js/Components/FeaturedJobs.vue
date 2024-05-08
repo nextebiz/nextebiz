@@ -13,18 +13,31 @@ const props = defineProps({
 <template>
 
     <div class=" py-[100px] bg-gray-900" style="  background-attachment: fixed;  background-repeat: no-repeat; background-size: cover; background-image: url('/assets/img/bg/laravel-11-bg.jpg');">
-        <div class="container mx-auto myck px-5">
-            <div class="text-white">
-                <h2>We are Hiring!</h2>
+        <div class="container mx-auto myck px-5 ">
+            <div class="text-white ">
+                <div v-if="full != 'full'" class="flex items-center">
+                    <h2 class="me-5">We are Hiring!</h2>
+                    <Link href="/open-positions" class="text-blue-400 flex">
+                    <div class="mt-[5px]">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="me-3 w-[15px] h-[15px] fill-orange-500">
+                            <path
+                                d="M470.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 256 265.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160zm-352 160l160-160c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L210.7 256 73.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0z" />
+                        </svg>
+                    </div>
+                    <div>
+                        See all open jobs
+                    </div>
+                    </Link>
+                </div>
                 <p class="mb-3 text-white">At Next eBiz, we specialize in delivering cutting-edge software solutions to clients across diverse industries. From custom software development to innovative digital solutions,
                     we're committed to excellence in everything we do.
                 </p>
             </div>
 
-            <div v-for="category in categories" :key="category.id" class="mb-[50px]">
+            <div v-for="category in categories" :key="category.id" class="">
                 <div v-if="category.job_posts.length > 0">
-                    <div class="text-center mb-5 pb-3 border-b border-b-gray-700">
-                        <div class="flex items-center justify-start">
+                    <div class="text-center mb-5 pb-3 border-b border-b-gray-600 dark:border-b-gray-700">
+                        <div class="flex items-center justify-start mt-[50px]">
 
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="me-3 w-[20px] h-[20px] fill-orange-500">
                                 <path
@@ -34,9 +47,10 @@ const props = defineProps({
                         </div>
                     </div>
                     <div class=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                        <div v-for="job in category.job_posts" :key="job.id" class="bg-gray-100 dark:bg-gray-900 border border-gray-300 dark:border-gray-600 p-5">
+                        <div v-for="job in category.job_posts" :key="job.id" class="bg-gray-100 dark:bg-gray-900 border border-gray-300 dark:border-gray-700 p-5">
                             <div class="flex mb-5">
-                                <div v-for="city in job.cities" :key="city" class="text-gray-600 dark:text-white border border-gray-300 dark:border-gray-800 px-3 py-1 mr-2 capitalize text-bold bg-gray-100 dark:bg-gray-900 rounded-lg ">
+                                <div v-for="city in job.cities" :key="city"
+                                    class="text-gray-600 dark:text-white border border-gray-300 dark:border-gray-700 px-3 py-1 mr-2 capitalize text-bold bg-gray-100 dark:bg-gray-900 rounded-lg ">
                                     {{ city }}
                                 </div>
                             </div>
@@ -73,21 +87,6 @@ const props = defineProps({
                     </div>
                 </div>
 
-            </div>
-
-            <div v-if="full != 'full'" class="b-5 pb-3 border-b border-b-gray-700">
-
-                <div>
-                    <Link href="/open-positions" class="text-blue-400 flex">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="me-3 w-[20px] h-[20px] fill-orange-500">
-                        <path
-                            d="M470.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 256 265.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160zm-352 160l160-160c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L210.7 256 73.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0z" />
-                    </svg>
-                    <span>
-                        See all jobs ...
-                    </span>
-                    </Link>
-                </div>
             </div>
         </div>
     </div>

@@ -30,5 +30,9 @@ return [
             'channel' => env('SLACK_BOT_USER_DEFAULT_CHANNEL'),
         ],
     ],
-
+    'google_recaptcha' => [
+        'url' => 'https://www.recaptcha.net/recaptcha/api/siteverify',
+        'site_key' => env('GOOGLE_RECAPTCHA_SITE_KEY'),
+        'secret_key' => env('GOOGLE_RECAPTCHA_SECRET_SITE_KEY'),
+    ],
 ];

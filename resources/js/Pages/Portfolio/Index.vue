@@ -8,7 +8,7 @@ import { TailwindPagination } from 'laravel-vue-pagination';
 const props = defineProps({
     portfolios: Object,
     portfoliocategories: Object,
-    portfoliocategory_id: Number
+    portfoliocategory_id: String
 })
 
 const form = useForm({
@@ -60,9 +60,9 @@ onMounted(() => {
                 <div class="flex flex-wrap mb-3">
 
                     <div v-for="category in portfoliocategories" :key="category">
-                        <Link @click.prevent="getCategoryData(category.id)">
-                        <div class="btn-gray rounded-lg px-4 py-1 m-2" :class="category.id == form.portfoliocategory_id ? `bg-orange-500 text-white hover:bg-orange-600` : ''">{{ category.title }}</div>
-                        </Link>
+                        <div class="cursor-pointer" @click.prevent="getCategoryData(category.id)">
+                            <div class="btn-gray rounded-lg px-4 py-1 m-2" :class="category.id == form.portfoliocategory_id ? `bg-orange-500 text-white hover:bg-orange-600` : ''">{{ category.title }}</div>
+                        </div>
 
                     </div>
                 </div>

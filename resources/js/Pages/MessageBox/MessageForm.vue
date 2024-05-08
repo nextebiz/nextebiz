@@ -1,6 +1,8 @@
 <script setup>
 import { useForm } from "@inertiajs/vue3";
-import { onUpdated, ref } from "vue";
+import { onMounted, onUpdated, ref } from "vue";
+import { useReCaptcha } from "vue-recaptcha-v3";
+
 const props = defineProps({
     jobcategories: Object,
     selected_category: Number,
@@ -8,6 +10,14 @@ const props = defineProps({
 })
 
 const sent = ref(false);
+
+const { executeRecaptcha, recaptchaLoaded } = useReCaptcha()
+const recaptcha = async () => {
+    await recaptchaLoaded()
+    form.captcha_token = await executeRecaptcha('login')
+    sendMessage();
+}
+
 
 const form = useForm({
     name: "",
@@ -18,6 +28,8 @@ const form = useForm({
     message: '',
     message_type: 'Client Query'
 })
+
+
 function resetForm() {
     sent.value = false;
     form.message = '';
@@ -33,16 +45,21 @@ onUpdated(() => {
     // form.name = props.name
     form.category_id = props.selected_category;
 })
+onMounted(() => {
+    // console.log(props.jobcategories)
+    // console.log(props.selected_category)
+    initFlowbite();
+})
 </script>
 <template>
 
-    <form v-if="sent == false" class="" @submit.prevent="sendMessage">
+    <form v-if="sent == false" class="" @submit.prevent="recaptcha">
         <div class="grid gap-4 mb-4 grid-cols-2">
             <div class="col-span-2">
                 <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Name</label>
                 <input type="text" v-model="form.name" id="name"
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                    placeholder="Type product name" required>
+                    placeholder="Type your name" required>
             </div>
             <div class="col-span-2">
                 <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email</label>
@@ -56,6 +73,7 @@ onUpdated(() => {
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                     placeholder="Type phone" required>
             </div>
+
             <div class="col-span-2">
                 <label for="category" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Required Talent</label>
                 <select id="category" v-model="form.category_id" @change="catchange"
@@ -86,7 +104,9 @@ onUpdated(() => {
             </svg>
             Send Message
         </button>
-
+        <div v-if="form.errors.captcha_token" class="my-3 text-red-500">
+            {{ form.errors.captcha_token }}
+        </div>
         <div class="flex items-center justify-center mb-0 border border-gray-200 dark:border-gray-600 p-2 rounded-lg fill-red-500 dark:fill-gray-400 dark:text-white">
 
             <div class="w-[50px] mr-5 pe-5 border-e border-e-gray-200 dark:border-e-gray-600 ">

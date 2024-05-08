@@ -5,8 +5,8 @@ import { initFlowbite } from 'flowbite'
 import { Head, Link, useForm } from "@inertiajs/vue3";
 import Nav from "./Nav.vue";
 import FeaturedJobs from '@/Components/FeaturedJobs.vue'
-import IndustriesVue from "./Industries.vue";
-import Idea from "./Idea.vue";
+import IndustriesVue from "../Include/Industries.vue";
+import Idea from "../Include/Idea.vue";
 
 const props = defineProps({
     jobcategories: Object,

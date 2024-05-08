@@ -34,6 +34,7 @@ class HandleInertiaRequests extends Middleware
 
         return [
             ...parent::share($request),
+            'recaptcha_site_key' => config('services.google_recaptcha.site_key'),
             'auth' => [
                 'user' => $request->user(),
                 'role' => $request->user() !== null ? $request->user()->getRoleNames()[0] : ''

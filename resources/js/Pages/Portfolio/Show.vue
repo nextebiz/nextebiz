@@ -4,8 +4,8 @@ import { onMounted } from "vue";
 import { initFlowbite } from 'flowbite'
 import { Head, Link } from "@inertiajs/vue3";
 import MySwiper from '@/Pages/Swiper/Swiper.vue';
-import Industries from "@/Pages/Expertise/Industries.vue";
-import Idea from "@/Pages/Expertise/Idea.vue";
+import Industries from "@/Pages/Include/Industries.vue";
+import Idea from "@/Pages/Include/Idea.vue";
 
 
 const props = defineProps({

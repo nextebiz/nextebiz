@@ -1,0 +1,1 @@
+import{_ as o}from"./AuthenticatedLayout-CjjYxkHx.js";import e from"./AdminMenu-QM_FOkgp.js";import{o as a,b as r,c as s,w as n,r as _,e as i}from"./app-BKlfRoUC.js";import"./SettingsStore-Rprfs9st.js";const d={__name:"AdminLayout",setup(m){return a(()=>{initFlowbite()}),(t,c)=>(r(),s(o,null,{default:n(()=>[_(t.$slots,"default"),i(e)]),_:3}))}};export{d as default};
