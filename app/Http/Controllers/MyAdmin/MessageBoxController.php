@@ -14,7 +14,7 @@ class MessageBoxController extends Controller
      */
     public function index()
     {
-        $messages = MessageBox::orderBy('id', 'desc')->paginate(2);
+        $messages = MessageBox::orderBy('id', 'desc')->paginate(20);
         return Inertia::render('MyAdmin/Messages/Index')->with(['messages' => $messages]);
     }
 
