@@ -12,8 +12,6 @@ use App\Http\Controllers\MyAdmin\PortfolioController;
 use App\Http\Controllers\MyAdmin\UserController;
 use App\Http\Controllers\ProfileController;
 use App\Mail\Email;
-use App\Mail\Welcome;
-use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -57,7 +55,11 @@ Route::middleware(['auth', 'role:admin'])->name('myadmin.')->prefix('myadmin')->
     Route::post('portfolio/{portfolio}', [PortfolioController::class, 'update']);
 
     Route::resource('messages', MessageBoxController::class);
+
+    Route::post('/messages/filter', [MessageBoxController::class, 'filter'])->name('messages.filter');
+
     Route::resource('users', UserController::class);
+
 
     Route::resource('portfoliocategories', PortfolioCategoryController::class);
     Route::get('profile', [AdminController::class, 'profile'])->name('profile');

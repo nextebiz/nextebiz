@@ -9,5 +9,5 @@ class MessageBox extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['url', 'message_type', 'name', 'email', 'phone', 'category_id', 'category_name', 'message', 'user_agent', 'ip'];
+    protected $fillable = ['url', 'message_type', 'mark_as_read', 'name', 'email', 'phone', 'category_id', 'category_name', 'message', 'user_agent', 'ip'];
 }

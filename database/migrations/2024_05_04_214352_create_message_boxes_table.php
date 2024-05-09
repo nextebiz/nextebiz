@@ -23,6 +23,7 @@ return new class extends Migration
             $table->text('message')->nullable();
             $table->string('user_agent');
             $table->string('ip');
+            $table->boolean('mark_as_read')->default(false);
             $table->timestamps();
         });
     }

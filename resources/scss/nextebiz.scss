@@ -10,6 +10,10 @@
     @apply bg-green-500 text-white px-5 py-2 rounded-lg hover:bg-green-600 transition-all;
 }
 
+.btn-red {
+    @apply bg-red-500 text-white px-5 py-2 rounded-lg hover:bg-red-600 transition-all;
+}
+
 .btn-gray {
     @apply bg-gray-200 text-gray-600 px-5 py-1 rounded-lg hover:bg-gray-300 transition-all;
 }

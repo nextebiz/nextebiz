@@ -12,12 +12,41 @@ class MessageBoxController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $messages = MessageBox::orderBy('id', 'desc')->paginate(20);
-        return Inertia::render('MyAdmin/Messages/Index')->with(['messages' => $messages]);
+        $mark_as_read = $request->input('mark_as_read');
+
+        $control = "=";
+
+        if ($mark_as_read == null || $mark_as_read == -1) {
+            $mark_as_read = -1;
+            $control = ">";
+        }
+        $messages = MessageBox::orderBy('id', 'desc')->where('mark_as_read', $control, $mark_as_read)->paginate(2);
+
+        if ($mark_as_read == 2) {
+        } else {
+        }
+
+        return Inertia::render('MyAdmin/Messages/Index')->with(['messages' => $messages, 'mark_as_read' => $mark_as_read]);
     }
 
+
+    // public function filter(Request $request)
+    // {
+    //     $mark_as_read = $request->input('mark_as_read');
+
+    //     if ($mark_as_read == 0 || $mark_as_read == 1) {
+    //         // dd('hi', $mark_as_read);
+    //         $messages = MessageBox::orderBy('id', 'desc')->where('mark_as_read', '=', $mark_as_read)->paginate(2);
+    //         // return Inertia::render('MyAdmin/Messages/Index')->with(['messages' => $messages]);
+    //         return back()->with(['messages' => $messages]);
+    //     } else {
+    //         $messages = MessageBox::orderBy('id', 'desc')->paginate(2);
+    //         // return Inertia::render('MyAdmin/Messages/Index')->with(['messages' => $messages]);
+    //         return back()->with(['messages' => $messages]);
+    //     }
+    // }
     /**
      * Show the form for creating a new resource.
      */
@@ -53,9 +82,24 @@ class MessageBoxController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, MessageBox $message)
     {
-        //
+        $referer = request()->headers->get('referer');
+
+        // dd($referer);
+        $mark_as_read = $message->mark_as_read;
+
+        if ($mark_as_read == 1) {
+            $message->update([
+                'mark_as_read' => false
+            ]);
+        } else {
+            $message->update([
+                'mark_as_read' => true
+            ]);
+        }
+
+        return back();
     }
 
     /**
