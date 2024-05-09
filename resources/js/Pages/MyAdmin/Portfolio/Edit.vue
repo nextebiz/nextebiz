@@ -113,7 +113,7 @@ onMounted(() => {
                                                     d="M256 48a208 208 0 1 1 0 416 208 208 0 1 1 0-416zm0 464A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM175 175c-9.4 9.4-9.4 24.6 0 33.9l47 47-47 47c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l47-47 47 47c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-47-47 47-47c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0l-47 47-47-47c-9.4-9.4-24.6-9.4-33.9 0z" />
                                             </svg>
                                         </div>
-                                        <img :src="media.preview_url" class="h-[200px] m-auto" />
+                                        <img :src="media.original_url" class="w-[100%] h-[200px] m-auto object-contain" />
                                         <div class="w-full text-center my-2" v-if="form.default_media_id != media.id">
                                             <button type="button" @click.prevent="setDefaultImage(media.id)" class="btn-dark px-4 py-1">Set Default</button>
                                         </div>

@@ -53,11 +53,17 @@ class PortfolioController extends Controller
             "enabled" => $request->input('enabled'),
         ]);
 
-        if ($pictures) {
-            $portfolio->addMultipleMediaFromRequest(['pictures'])->each(function ($file) {
-                $file->toMediaCollection('images');
-            });
+
+        if ($request->file('pictures')) {
+            foreach ($request->file('pictures') as $photo) {
+                $portfolio->addMedia($photo)->toMediaCollection('images');
+            }
         }
+        // if ($pictures) {
+        //     $portfolio->addMultipleMediaFromRequest(['pictures'])->each(function ($file) {
+        //         $file->toMediaCollection('images');
+        //     });
+        // }
 
         return to_route('myadmin.portfolio.index');
     }
@@ -105,10 +111,17 @@ class PortfolioController extends Controller
         //     "enabled" => $request->input('enabled'),
         // ]);
 
-        if ($pictures) {
-            $portfolio->addMultipleMediaFromRequest(['pictures'])->each(function ($file) {
-                $file->toMediaCollection('images');
-            });
+        // if ($pictures) {
+
+        //     $portfolio->addMultipleMediaFromRequest(['pictures'])->each(function ($file) {
+        //         $file->toMediaCollection('images');
+        //     });
+        // }
+
+        if ($request->file('pictures')) {
+            foreach ($request->file('pictures') as $photo) {
+                $portfolio->addMedia($photo)->toMediaCollection('images');
+            }
         }
         return to_route('myadmin.portfolio.index');
     }

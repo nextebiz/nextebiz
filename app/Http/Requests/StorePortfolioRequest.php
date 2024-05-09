@@ -24,7 +24,7 @@ class StorePortfolioRequest extends FormRequest
         return [
             "title" => ['required'],
             "portfolio_category_id" => ['required'],
-            'pictures' => ['nullable'],
+            'pictures' => ['nullable', 'max:500000'],
             'default_media_id'=>['nullable'],
             "small_description" => ['required'],
             "description" => ['required'],
