@@ -56,7 +56,7 @@ class PortfolioController extends Controller
 
         if ($request->file('pictures')) {
             foreach ($request->file('pictures') as $photo) {
-                $portfolio->addMedia($photo)->toMediaCollection('images');
+                $portfolio->addMedia($photo)->toMediaCollection('images', 'media');
             }
         }
         // if ($pictures) {
@@ -120,7 +120,7 @@ class PortfolioController extends Controller
 
         if ($request->file('pictures')) {
             foreach ($request->file('pictures') as $photo) {
-                $portfolio->addMedia($photo)->toMediaCollection('images');
+                $portfolio->addMedia($photo)->toMediaCollection('images', 'media');
             }
         }
         return to_route('myadmin.portfolio.index');
