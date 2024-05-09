@@ -22,7 +22,7 @@ class MessageBoxController extends Controller
             $mark_as_read = -1;
             $control = ">";
         }
-        $messages = MessageBox::orderBy('id', 'desc')->where('mark_as_read', $control, $mark_as_read)->paginate(2);
+        $messages = MessageBox::orderBy('id', 'desc')->where('mark_as_read', $control, $mark_as_read)->paginate(20);
 
         if ($mark_as_read == 2) {
         } else {
