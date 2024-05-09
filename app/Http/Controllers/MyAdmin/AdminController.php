@@ -11,6 +11,9 @@ class AdminController extends Controller
     public function index()
     {
         return Inertia::render('MyAdmin/Dashboard');
-
+    }
+    public function profile()
+    {
+        return Inertia::render('MyAdmin/Profile/Index');
     }
 }

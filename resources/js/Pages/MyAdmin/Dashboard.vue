@@ -49,7 +49,14 @@ onMounted(() => {
                         <div class=" text-gray-900 dark:text-white ">
                             <div class=" bg-gray-200 dark:bg-gray-800 p-6 rounded-lg ">
                                 <h4 class="mb-3">Client Messages</h4>
-                                <Link class="btn-dark" :href="route('myadmin.jobcategories.index')">Client Messages</Link>
+                                <Link class="btn-dark" :href="route('myadmin.messages.index')">Client Messages</Link>
+                            </div>
+                        </div>
+
+                        <div class=" text-gray-900 dark:text-white ">
+                            <div class=" bg-gray-200 dark:bg-gray-800 p-6 rounded-lg ">
+                                <h4 class="mb-3">Users</h4>
+                                <Link class="btn-dark" :href="route('myadmin.users.index')">Users</Link>
                             </div>
                         </div>
                     </div>

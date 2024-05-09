@@ -89,7 +89,7 @@ const submit = () => {
 
                 <InputLabel for="resume_file" value="Resume / CV file (PDF Doc, or Docx)" />
 
-                <input type="file" id="resume_file" class="mt-1 block w-full" @input="form.resume_file = $event.target.files[0]" required  autocomplete="name" />
+                <input type="file" id="resume_file" accept=".pdf,.doc,.docx" class="mt-1 block w-full" @input="form.resume_file = $event.target.files[0]" required  autocomplete="name" />
                 <!-- <TextInput id="resume_file" type="file" class="mt-1 block w-full" v-model="form.resume_file" required  autocomplete="name" /> -->
                 <InputError class="mt-2" :message="form.errors.resume_file" />
 

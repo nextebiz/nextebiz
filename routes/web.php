@@ -6,8 +6,10 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MyAdmin\AdminController;
 use App\Http\Controllers\MyAdmin\JobCategoryController;
 use App\Http\Controllers\MyAdmin\JobPostController;
+use App\Http\Controllers\MyAdmin\MessageBoxController;
 use App\Http\Controllers\MyAdmin\PortfolioCategoryController;
 use App\Http\Controllers\MyAdmin\PortfolioController;
+use App\Http\Controllers\MyAdmin\UserController;
 use App\Http\Controllers\ProfileController;
 use App\Mail\Email;
 use App\Mail\Welcome;
@@ -33,12 +35,15 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified', 'role:admin'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    // Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::post('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::get('/password', [ProfileController::class, 'password'])->name('profile.password');
-    Route::get('/delete_account', [ProfileController::class, 'deleteaccount'])->name('profile.deleteaccount');
     Route::post('/applyjob', [JobPostController::class, 'applyjob'])->name('jobpost.applyjob');
+});
+
+Route::middleware(['auth', 'role:candidate'])->group(function () {
+    Route::get('/delete_account', [ProfileController::class, 'deleteaccount'])->name('profile.deleteaccount');
 });
 
 // Route::get('/download/resume/{id}/{filename}', [CandidateController::class, 'download'])->name('download.resume');
@@ -51,7 +56,11 @@ Route::middleware(['auth', 'role:admin'])->name('myadmin.')->prefix('myadmin')->
     Route::resource('portfolio', PortfolioController::class);
     Route::post('portfolio/{portfolio}', [PortfolioController::class, 'update']);
 
+    Route::resource('messages', MessageBoxController::class);
+    Route::resource('users', UserController::class);
+
     Route::resource('portfoliocategories', PortfolioCategoryController::class);
+    Route::get('profile', [AdminController::class, 'profile'])->name('profile');
 
     Route::get('/{jobpost}/applicants', [JobPostController::class, 'applicants'])->name('applicants');
 });
