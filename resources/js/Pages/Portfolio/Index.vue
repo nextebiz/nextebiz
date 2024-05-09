@@ -58,10 +58,16 @@ onMounted(() => {
                 <h1 class=" mb-5">Portfolio</h1>
 
                 <div class="flex flex-wrap mb-3">
-
+                    <Link href="/portfolio">
+                    <div class="cursor-pointer">
+                        <div class="bg-gray-200 hover:bg-gray-300 rounded-lg px-4 py-1 m-2" :class="form.portfoliocategory_id == null ? 'bg-orange-500 text-white hover:text-white hover:bg-orange-600' : ''">
+                            Show All</div>
+                    </div>
+                    </Link>
                     <div v-for="category in portfoliocategories" :key="category">
                         <div class="cursor-pointer" @click.prevent="getCategoryData(category.id)">
-                            <div class="bg-gray-200 hover:bg-gray-300 rounded-lg px-4 py-1 m-2" :class="category.id == form.portfoliocategory_id ? 'bg-orange-500 text-white hover:text-white hover:bg-orange-600' : ''">{{ category.title }}</div>
+                            <div class="bg-gray-200 hover:bg-gray-300 rounded-lg px-4 py-1 m-2" :class="category.id == form.portfoliocategory_id ? 'bg-orange-500 text-white hover:text-white hover:bg-orange-600' : ''">{{
+                                category.title }}</div>
                         </div>
 
                     </div>
