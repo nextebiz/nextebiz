@@ -47,6 +47,7 @@ onMounted(() => {
 <template>
 
     <Head title="Messages" />
+
     <AdminLayout>
 
         <MenuButton title="Messages" />
