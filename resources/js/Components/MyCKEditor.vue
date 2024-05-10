@@ -56,7 +56,7 @@ import { watch } from 'vue';
 
 const editor = ClassicEditor;
 const editorConfig = {
-    extraAllowedContent : '*(*);*{*}',
+    allowedContent: true,
     plugins: [
         Essentials,
         Font,
