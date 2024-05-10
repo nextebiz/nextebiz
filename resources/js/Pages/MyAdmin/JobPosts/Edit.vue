@@ -183,9 +183,5 @@ onMounted(() => {
                 </div>
             </div>
         </div>
-        <hr>
-        <div class="text-white p-4">
-            {{ form }}
-        </div>
     </AdminLayout>
 </template>

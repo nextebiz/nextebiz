@@ -60,14 +60,16 @@ onMounted(() => {
                 <div class="flex flex-wrap mb-3">
                     <Link href="/portfolio">
                     <div class="cursor-pointer">
-                        <div class="bg-gray-200 hover:bg-gray-300 rounded-lg px-4 py-1 m-2" :class="form.portfoliocategory_id == null ? 'bg-orange-500 text-white hover:text-white hover:bg-orange-600' : ''">
+                        <div class="transition-all rounded-lg px-4 py-1 m-2"
+                            :class="form.portfoliocategory_id == null ? 'bg-orange-500 text-white hover:text-white hover:bg-orange-600' : 'bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-900'">
                             Show All</div>
                     </div>
                     </Link>
                     <div v-for="category in portfoliocategories" :key="category">
                         <div class="cursor-pointer" @click.prevent="getCategoryData(category.id)">
-                            <div class="bg-gray-200 hover:bg-gray-300 rounded-lg px-4 py-1 m-2" :class="category.id == form.portfoliocategory_id ? 'bg-orange-500 text-white hover:text-white hover:bg-orange-600' : ''">{{
-                                category.title }}</div>
+                            <div class="transition-all rounded-lg px-4 py-1 m-2"
+                                :class="category.id == form.portfoliocategory_id ? 'bg-orange-500 text-white hover:text-white hover:bg-orange-600' : 'bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-900'">{{
+                                    category.title }}</div>
                         </div>
 
                     </div>
