@@ -25,13 +25,19 @@ const form = useForm({
     quarterly: props.jobcategory.quarterly,
     picture: props.jobcategory.picture,
     small_description: props.jobcategory.small_description,
-    description: props.jobcategory.description,
+    description: unescape(props.jobcategory.description),
     enabled: props.jobcategory.enabled == 1 ? true : false,
 
 });
 
 function submitCategory() {
-    console.log(form.description);
+    // console.log(form.description);
+    // let e = escape(form.description);
+    // console.log(e);
+    // let ue = unescape(e);
+    // console.log(ue);
+
+    form.description = escape(form.description);
 
     const post_url = `/myadmin/jobcategories/${props.jobcategory.slug}`;
     form.post(post_url);
