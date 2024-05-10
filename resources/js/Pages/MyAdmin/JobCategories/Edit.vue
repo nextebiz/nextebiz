@@ -31,6 +31,8 @@ const form = useForm({
 });
 
 function submitCategory() {
+    console.log(form.description);
+
     const post_url = `/myadmin/jobcategories/${props.jobcategory.slug}`;
     form.post(post_url);
     // form.post(post_url, form.id);
