@@ -83,7 +83,7 @@ onMounted(() => {
                     <h1 class="mb-5">{{ jobcategory.title }}</h1>
 
                     <div class="myck mb-5" v-if="jobcategory.media.length">
-                        <img :src="jobcategory.media[0]?.original_url"/>
+                        <img :src="jobcategory.media[0]?.original_url" />
                     </div>
 
                     <div class="myck mb-5">
@@ -115,26 +115,43 @@ onMounted(() => {
 
                     <div class="mb-[50px]">
                         <h2 class="my-5 text-center">Hire {{ jobcategory.title }}</h2>
-                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                             <div class="border text-center border-gray-300 dark:border-gray-600 py-10 px-5">
                                 <h2 class="font-bold text-orange-500">Hourly</h2>
                                 <h5>Staring From</h5>
                                 <div class="text-5xl py-[20px] font-bold flex justify-center"><span class="text-2xl">$</span>
                                     <span>{{ Math.floor(jobcategory.min) }}</span>
                                 </div>
-                                <p>The model works well when you have a short-term project, need specialized service, or have a specific task to be completed.
+                                <p class="mb-5">
+                                    The model works well when you have a short-term project, need specialized service, or have a specific task to be completed.
                                 </p>
+                                <button @click="changeSelectedCategory(jobcategory.id)" data-modal-target="crud-modal" data-modal-toggle="crud-modal" class="w-full" type="button">
+                                    <div
+                                        class="bg-transparent hover:bg-gray-700 text-orange-500 font-semibold hover:text-white py-2 px-4 border border-gray-300 dark:border-gray-600 hover:border-transparent rounded transition-all">
+                                        <span>
+                                            Hire Resource ${{ jobcategory.min }} / Hour
+                                        </span>
+                                    </div>
+                                </button>
                             </div>
-                            <div class="border text-center border-gray-300 dark:border-gray-600 py-10 px-5">
+                            <div class="border text-center border-gray-300 dark:border-gray-600 pt-10 pb-5 px-5">
                                 <h2 class="font-bold text-orange-500">Monthly</h2>
                                 <h5>Staring From</h5>
                                 <div class="text-5xl py-[20px] font-bold flex justify-center"><span class="text-2xl">$</span>
                                     <span>{{ Math.floor(jobcategory.monthly) }}</span>
                                 </div>
-                                <p>
+                                <p class="mb-5">
                                     When you seek a long-term partnership with a limited budget and in less time, hire our experienced developers monthly.
 
                                 </p>
+                                <button @click="changeSelectedCategory(jobcategory.id)" data-modal-target="crud-modal" data-modal-toggle="crud-modal" class="w-full" type="button">
+                                    <div
+                                        class="bg-transparent hover:bg-gray-700 text-orange-500 font-semibold hover:text-white py-2 px-4 border border-gray-300 dark:border-gray-600 hover:border-transparent rounded transition-all">
+                                        <span>
+                                            Hire Resource ${{ jobcategory.monthly }} / Month
+                                        </span>
+                                    </div>
+                                </button>
                             </div>
                             <div class="border text-center border-gray-300 dark:border-gray-600 py-10 px-5">
                                 <h2 class="font-bold text-orange-500">Quarterly</h2>
@@ -142,9 +159,17 @@ onMounted(() => {
                                 <div class="text-5xl py-[20px] font-bold flex justify-center"><span class="text-2xl">$</span>
                                     <span>{{ Math.floor(jobcategory.quarterly) }}</span>
                                 </div>
-                                <p>
+                                <p class="mb-5">
                                     Need constant support from developers to serve your volatile requirements? Hiring our developers quarterly will save you from all the hassle.
                                 </p>
+                                <button @click="changeSelectedCategory(jobcategory.id)" data-modal-target="crud-modal" data-modal-toggle="crud-modal" class="w-full" type="button">
+                                    <div
+                                        class="bg-transparent hover:bg-gray-700 text-orange-500 font-semibold hover:text-white py-2 px-4 border border-gray-300 dark:border-gray-600 hover:border-transparent rounded transition-all">
+                                        <span>
+                                            Hire Resource ${{ jobcategory.quarterly }} / Quarter
+                                        </span>
+                                    </div>
+                                </button>
                             </div>
                         </div>
                     </div>
