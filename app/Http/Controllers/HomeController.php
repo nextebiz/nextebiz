@@ -69,8 +69,9 @@ class HomeController extends Controller
             return $query;
         }])->where('id', '=', $jobcategory->id)->get();
 
-        return Inertia::render("Expertise/Show")->with(['jobcategory' => $jobcategory, 'jobcategories' => $jobcategories, 'categories' => $categories, 'jobpostuser' => $jobpostuser]);
+        $jobcategory = JobCategory::with('media')->where('id', '=', $jobcategory->id)->first();
 
+        return Inertia::render("Expertise/Show")->with(['jobcategory' => $jobcategory, 'jobcategories' => $jobcategories, 'categories' => $categories, 'jobpostuser' => $jobpostuser]);
 
 
         // return Inertia::render("Career/Index")->with(['categories' => $categories, 'jobpostuser' => $jobpostuser]);

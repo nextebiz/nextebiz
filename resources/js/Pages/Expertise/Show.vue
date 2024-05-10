@@ -83,6 +83,10 @@ onMounted(() => {
                     <h1 class="mb-5">{{ jobcategory.title }}</h1>
 
                     <div class="myck mb-5">
+                        <img :src="jobcategory.media[0].original_url"/>
+                    </div>
+
+                    <div class="myck mb-5">
                         <div v-html="jobcategory.description"></div>
                     </div>
                     <div class=" w-full p-0 mb-5">
