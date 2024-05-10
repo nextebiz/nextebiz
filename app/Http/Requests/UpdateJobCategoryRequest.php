@@ -29,7 +29,7 @@ class UpdateJobCategoryRequest extends FormRequest
             'quarterly' => ['required'],
             'picture'=>['nullable'],
             'small_description'=>['required'],
-            'description'=>['required'],
+            'description'=>['required', 'string', "regex:/^([^\"!'\*\\]*)$/"],
             'enabled' => ['required']
         ];
     }
