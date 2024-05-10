@@ -422,7 +422,6 @@ const form = useForm({
 })
 
 function updateContent() {
-    console.log('updateContent called')
     emits('updateContent', form.content);
 }
 

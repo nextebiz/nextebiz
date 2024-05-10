@@ -12,6 +12,7 @@ const props = defineProps({
     jobcategory: Object,
     media: String,
     errors: Object,
+    csrf_token: String
 
 })
 
@@ -27,6 +28,8 @@ const form = useForm({
     small_description: props.jobcategory.small_description,
     description: props.jobcategory.description,
     enabled: props.jobcategory.enabled == 1 ? true : false,
+    _token: props.csrf_token,
+
 });
 
 function submitCategory() {
@@ -48,6 +51,7 @@ onMounted(() => {
 
     <AuthenticatedLayout>
         <MenuButton title="Edit Job Category" />
+        {{ form }}
         <div class="pb-10">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <Nav />
