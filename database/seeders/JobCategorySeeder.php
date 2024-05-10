@@ -13,6 +13,50 @@ class JobCategorySeeder extends Seeder
      */
     public function run(): void
     {
+        JobCategory::create([
+            'title' => 'Fullstack Development',
+            'min' => 35,
+            'max' => 120,
+            'monthly' => 1200,
+            'quarterly' => 1200,
+            'enabled' => true
+        ]);
+
+        JobCategory::create([
+            'title' => 'Wordpress Development',
+            'min' => 20,
+            'max' => 45,
+            'monthly' => 1200,
+            'quarterly' => 1200,
+            'enabled' => true
+        ]);
+
+        JobCategory::create([
+            'title' => 'Mobile App Development',
+            'min' => 20,
+            'max' => 45,
+            'monthly' => 1200,
+            'quarterly' => 1200,
+            'enabled' => true
+        ]);
+
+        JobCategory::create([
+            'title' => 'E-commerce Services',
+            'min' => 20,
+            'max' => 45,
+            'monthly' => 1200,
+            'quarterly' => 1200,
+            'enabled' => true
+        ]);
+
+        JobCategory::create([
+            'title' => 'Virtual Assistant Ebay/Amazon/Walmart',
+            'min' => 20,
+            'max' => 45,
+            'monthly' => 1200,
+            'quarterly' => 1200,
+            'enabled' => true
+        ]);
 
         JobCategory::create([
             'title' => 'UI/UX Frontend',
@@ -23,21 +67,23 @@ class JobCategorySeeder extends Seeder
             'enabled' => true
         ]);
         JobCategory::create([
-            'title' => 'Graphic Designer',
+            'title' => 'Graphic Designing',
             'min' => 12,
             'max' => 25,
             'monthly' => 1200,
             'quarterly' => 1200,
             'enabled' => true
         ]);
+
         JobCategory::create([
-            'title' => 'Social Media',
+            'title' => 'Social Media Marketing',
             'min' => 17,
             'max' => 35,
             'monthly' => 1200,
             'quarterly' => 1200,
             'enabled' => true
         ]);
+
         JobCategory::create([
             'title' => 'Digital Marketing Expert',
             'min' => 15,
@@ -47,7 +93,7 @@ class JobCategorySeeder extends Seeder
             'enabled' => true
         ]);
         JobCategory::create([
-            'title' => 'Frontend Developer',
+            'title' => 'Frontend Development',
             'min' => 15,
             'max' => 35,
             'monthly' => 1200,
@@ -55,15 +101,16 @@ class JobCategorySeeder extends Seeder
             'enabled' => true
         ]);
         JobCategory::create([
-            'title' => 'Backend Developer',
+            'title' => 'Backend Development',
             'min' => 25,
             'max' => 75,
             'monthly' => 1200,
             'quarterly' => 1200,
             'enabled' => true
         ]);
+
         JobCategory::create([
-            'title' => 'Business Development Executive',
+            'title' => 'Business Development',
             'min' => 35,
             'max' => 75,
             'monthly' => 1200,
@@ -82,30 +129,6 @@ class JobCategorySeeder extends Seeder
             'title' => 'Customer Service Representative',
             'min' => 12,
             'max' => 25,
-            'monthly' => 1200,
-            'quarterly' => 1200,
-            'enabled' => true
-        ]);
-        JobCategory::create([
-            'title' => 'Wordpress Developer',
-            'min' => 20,
-            'max' => 45,
-            'monthly' => 1200,
-            'quarterly' => 1200,
-            'enabled' => true
-        ]);
-        JobCategory::create([
-            'title' => 'Fullstack Developer',
-            'min' => 35,
-            'max' => 120,
-            'monthly' => 1200,
-            'quarterly' => 1200,
-            'enabled' => true
-        ]);
-        JobCategory::create([
-            'title' => 'Trainee Software Developer',
-            'min' => 0,
-            'max' => 0,
             'monthly' => 1200,
             'quarterly' => 1200,
             'enabled' => true
