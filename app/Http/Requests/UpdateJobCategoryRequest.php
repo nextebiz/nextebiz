@@ -34,15 +34,15 @@ class UpdateJobCategoryRequest extends FormRequest
         ];
     }
 
-    /**
-     * Prepare the data for validation.
-     *
-     * @return void
-     */
-    protected function prepareForValidation()
-    {
-        $this->merge([
-            'description' => str_replace(';', '&#59;', $this->description),
-        ]);
-    }
+    // /**
+    //  * Prepare the data for validation.
+    //  *
+    //  * @return void
+    //  */
+    // protected function prepareForValidation()
+    // {
+    //     $this->merge([
+    //         'description' => str_replace(';', '&#59;', $this->description),
+    //     ]);
+    // }
 }
