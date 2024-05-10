@@ -31,7 +31,7 @@ const form = useForm({
 
 function submitCategory() {
     const post_url = `/myadmin/jobcategories/${props.jobcategory.slug}`;
-    form.post(post_url, { preserveScroll: true });
+    form.post(post_url);
     // form.post(post_url, form.id);
 }
 function updateDescription(description) {
@@ -121,6 +121,8 @@ onMounted(() => {
                             </div>
                             <div class="mb-5">
                                 <label for="description" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Job Description</label>
+
+                                <textarea v-model="form.description" class="w-full" />
 
                                 <MyCKEditor :content="form.description" @updateContent="updateDescription" class="myck" :class="props.errors?.description ? 'border-red-500 p-[1px] bg-red-500' : ''">
                                 </MyCKEditor>
