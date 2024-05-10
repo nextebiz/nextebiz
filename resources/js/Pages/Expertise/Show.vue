@@ -87,8 +87,7 @@ onMounted(() => {
                     </div>
                     <div class=" w-full p-0 mb-5">
                         <button @click="changeSelectedCategory(jobcategory.id)" data-modal-target="crud-modal" data-modal-toggle="crud-modal" class="w-full" type="button">
-                            <div
-                                class="flex items-center justify-center py-3 text-xl font-bold rounded-lg text-white  bg-orange-600 hover:bg-orange-500 hover:border-orange-800   transition-all">
+                            <div class="flex items-center justify-center py-3 text-xl font-bold rounded-lg text-white  bg-orange-600 hover:bg-orange-500 hover:border-orange-800   transition-all">
                                 <span class="text-white ">
                                     Hire {{ jobcategory.title }}
                                 </span>
@@ -128,7 +127,9 @@ onMounted(() => {
                                 <div class="text-5xl py-[20px] font-bold flex justify-center"><span class="text-2xl">$</span>
                                     <span>{{ Math.floor(jobcategory.monthly) }}</span>
                                 </div>
-                                <p>The model works well when you have a short-term project, need specialized service, or have a specific task to be completed.
+                                <p>
+                                    When you seek a long-term partnership with a limited budget and in less time, hire our experienced developers monthly.
+
                                 </p>
                             </div>
                             <div class="border text-center border-gray-300 dark:border-gray-600 py-10 px-5">
@@ -137,7 +138,8 @@ onMounted(() => {
                                 <div class="text-5xl py-[20px] font-bold flex justify-center"><span class="text-2xl">$</span>
                                     <span>{{ Math.floor(jobcategory.quarterly) }}</span>
                                 </div>
-                                <p>The model works well when you have a short-term project, need specialized service, or have a specific task to be completed.
+                                <p>
+                                    Need constant support from developers to serve your volatile requirements? Hiring our developers quarterly will save you from all the hassle.
                                 </p>
                             </div>
                         </div>
