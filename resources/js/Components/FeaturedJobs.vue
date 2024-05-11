@@ -35,7 +35,7 @@ const props = defineProps({
             </div>
 
             <div v-for="category in categories" :key="category.id" class="">
-                <div v-if="category.job_posts.length > 0">
+                <div v-if="category.job_posts?.length > 0">
                     <div class="text-center mb-5 pb-3 border-b border-b-gray-600 dark:border-b-gray-700">
                         <div class="flex items-center justify-start mt-[50px]">
 

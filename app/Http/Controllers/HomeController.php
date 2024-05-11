@@ -47,7 +47,7 @@ class HomeController extends Controller
     }
     function expertise()
     {
-        $jobcategories = JobCategory::with('media')->get();
+        $jobcategories = JobCategory::with('media')->where('enabled', 1)->get();
         // dd($jobcategories->toArray());
         return Inertia::render("Expertise/Index")->with(['jobcategories' => $jobcategories]);
     }
@@ -67,12 +67,22 @@ class HomeController extends Controller
 
         $categories = JobCategory::with(['jobPosts' => function ($query) {
             return $query;
-        }])->where('id', '=', $jobcategory->id)->get();
+        }])->where([
+            ['id', '=', $jobcategory->id],
+            ['enabled', '=', 1]
+        ])->get();
+
 
         $jobcategory = JobCategory::with('media')->where('id', '=', $jobcategory->id)->first();
 
-        return Inertia::render("Expertise/Show")->with(['jobcategory' => $jobcategory, 'jobcategories' => $jobcategories, 'categories' => $categories, 'jobpostuser' => $jobpostuser]);
+        $count = $categories->count();
 
+
+        if ($count > 0) {
+
+            return Inertia::render("Expertise/Show")->with(['jobcategory' => $jobcategory, 'jobcategories' => $jobcategories, 'categories' => $categories, 'jobpostuser' => $jobpostuser]);
+        }
+        return abort(404);
 
         // return Inertia::render("Career/Index")->with(['categories' => $categories, 'jobpostuser' => $jobpostuser]);
     }
@@ -158,9 +168,9 @@ class HomeController extends Controller
         if ($portfoliocategory_id) {
         }
 
-        $portfoliocategories = PortfolioCategory::select(['id', 'title', 'enabled'])->get();
+        $portfoliocategories = PortfolioCategory::select(['id', 'title', 'enabled'])->withCount('portfolios')->where('enabled', 1)->get();
 
-
+        // dd($portfoliocategories->count_portfolio());
         $portfolios = Portfolio::with(['media', 'portfolio_category' => function ($q) {
             return $q->select('id', 'title', 'enabled');
         }])->orderBy('id', 'desc')->paginate(10);

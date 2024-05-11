@@ -103,7 +103,10 @@ onMounted(() => {
                             <!-- {{ portfolio }} -->
 
                             <div class="mb-5">
-                                <label for="pictures" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Pictures</label>
+                                <div class="flex items-center mb-2 ">
+                                    <label for="pictures" class="block mr-3 text-sm font-medium text-gray-900 dark:text-white">Pictures</label>
+                                    <span class="text-sm">(Only *.jpg image formats are supported)</span>
+                                </div>
                                 <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-1 items-center mb-5">
                                     <div v-for="media in portfolio.media" :key="media.id" class="mr-3 bg-gray-200 dark:bg-gray-800 p-2 relative"
                                         :class="form.default_media_id == media.id ? 'bg-green-300 dark:bg-green-300' : ''">
@@ -123,7 +126,7 @@ onMounted(() => {
                                     </div>
                                 </div>
 
-                                <input type="file" id="pictures" multiple accept="image/x-png,image/gif,image/jpeg" class="mt-1 block w-full" @input="form.pictures = $event.target.files" />
+                                <input type="file" id="pictures" multiple accept="image/jpeg" class="mt-1 block w-full" @input="form.pictures = $event.target.files" />
                                 <div v-if="props.errors?.pictures" class="form_error">{{ props.errors?.pictures }}</div>
                             </div>
 

@@ -83,8 +83,11 @@ onMounted(() => {
                             </div>
 
                             <div class="mb-5">
-                                <label for="pictures" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Pictures</label>
-                                <input type="file" id="pictures" multiple accept="image/x-png,image/gif,image/jpeg" class="mt-1 block w-full" @input="form.pictures = $event.target.files" />
+                                <div class="flex items-center mb-2 ">
+                                    <label for="pictures" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Pictures</label>
+                                    <span class="text-sm">(Only *.jpg image formats are supported)</span>
+                                </div>
+                                <input type="file" id="pictures" multiple accept="image/jpeg" class="mt-1 block w-full" @input="form.pictures = $event.target.files" />
                                 <div v-if="props.errors?.pictures" class="form_error">{{ props.errors?.pictures }}</div>
                             </div>
 

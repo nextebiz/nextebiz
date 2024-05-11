@@ -33,6 +33,11 @@ const form = useForm({
 });
 
 function submitCategory() {
+    // let myescape = escape(form.description);
+    // console.log(myescape)
+    // let myunescape = unescape(myescape)
+    // console.log(myunescape)
+
     const post_url = `/myadmin/jobcategories/${props.jobcategory.slug}`;
     form.post(post_url);
     // form.post(post_url, form.id);
@@ -51,7 +56,6 @@ onMounted(() => {
 
     <AuthenticatedLayout>
         <MenuButton title="Edit Job Category" />
-        {{ form }}
         <div class="pb-10">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <Nav />

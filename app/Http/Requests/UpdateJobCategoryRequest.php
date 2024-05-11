@@ -27,10 +27,16 @@ class UpdateJobCategoryRequest extends FormRequest
             'max' => ['required'],
             'monthly' => ['required'],
             'quarterly' => ['required'],
-            'picture'=>['nullable'],
-            'small_description'=>['required'],
-            'description'=>['required'],
+            'picture' => ['nullable'],
+            'small_description' => ['required'],
+            'description' => ['required'],
             'enabled' => ['required']
         ];
     }
+    // protected function prepareForValidation(): void
+    // {
+    //     $this->merge([
+    //         'description' => str_replace('', '', $this->request->get('description'))
+    //     ]);
+    // }
 }

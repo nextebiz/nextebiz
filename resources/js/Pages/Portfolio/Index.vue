@@ -65,11 +65,16 @@ onMounted(() => {
                             Show All</div>
                     </div>
                     </Link>
-                    <div v-for="category in portfoliocategories" :key="category">
+                    <div v-for="category in portfoliocategories" :key="category" :class="category.portfolios_count > 0 ? '' : 'hidden'">
+
                         <div class="cursor-pointer" @click.prevent="getCategoryData(category.id)">
-                            <div class="transition-all rounded-lg px-4 py-1 m-2"
-                                :class="category.id == form.portfoliocategory_id ? 'bg-orange-500 text-white hover:text-white hover:bg-orange-600' : 'bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-900'">{{
-                                    category.title }}</div>
+                            <div class="flex transition-all rounded-lg px-4 py-1 m-2"
+                                :class="category.id == form.portfoliocategory_id ? 'bg-orange-500 text-white hover:text-white hover:bg-orange-600' : 'bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-900'">
+
+                                {{ category.title }}
+
+                                <span class="flex items-center justify-center w-[25px] h-[25px] ms-3 bg-gray-300 dark:bg-gray-800 dark:text-white  text-center text-sm rounded-full">{{ category.portfolios_count }}</span>
+                            </div>
                         </div>
 
                     </div>
