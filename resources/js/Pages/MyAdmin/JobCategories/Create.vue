@@ -27,6 +27,13 @@ const form = useForm({
 
 function submitCategory() {
 
+    // const styleRegex = / style="[^"]*"/g;
+    // form.small_description = form.small_description.replace(styleRegex, '');
+    // form.description = form.description.replace(styleRegex, '');
+
+    form.small_description = htmlspecialchars(form.small_description);
+    form.description = htmlspecialchars(form.description);
+
     form.post(route('myadmin.jobcategories.store'), { preserveScroll: true });
 }
 

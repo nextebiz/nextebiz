@@ -26,7 +26,7 @@ const form = useForm({
     quarterly: props.jobcategory.quarterly,
     picture: props.jobcategory.picture,
     small_description: props.jobcategory.small_description,
-    description: props.jobcategory.description,
+    description: decodedData(props.jobcategory.description),
     enabled: props.jobcategory.enabled == 1 ? true : false,
     _token: props.csrf_token,
 
@@ -38,10 +38,34 @@ function submitCategory() {
     // let myunescape = unescape(myescape)
     // console.log(myunescape)
 
+    // const styleRegex = / style="[^"]*"/g;
+    // form.small_description = form.small_description.replace(styleRegex, '');
+    // form.description = form.description.replace(styleRegex, '');
+
+    form.small_description = htmlEncode(form.small_description);
+    form.description = htmlEncode(form.description);
+
     const post_url = `/myadmin/jobcategories/${props.jobcategory.slug}`;
     form.post(post_url);
     // form.post(post_url, form.id);
 }
+
+function decodedData(encodedData) {
+    // Create a temporary element
+    let tempElement = document.createElement('div');
+    // Set the innerHTML of the element to the encoded data
+    tempElement.innerHTML = encodedData;
+    // Use the textContent property to get the decoded content
+    return tempElement.textContent || tempElement.innerText;
+}
+
+
+function htmlEncode(str) {
+    return str.replace(/[\u00A0-\u9999<>\&]/gim, function (i) {
+        return '&#' + i.charCodeAt(0) + ';';
+    });
+}
+
 function updateDescription(description) {
     form.description = description;
 }
