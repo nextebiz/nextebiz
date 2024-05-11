@@ -3,6 +3,8 @@
 </IfModule>
 <IfModule mod_rewrite.c>
 
+Require all granted
+
 Options +FollowSymLinks
 RewriteEngine On
 
