@@ -14,7 +14,7 @@ const props = defineProps({
     errors: Object,
     csrf_token: String
 
-})
+});
 
 const form = useForm({
     id: props.jobcategory.id,

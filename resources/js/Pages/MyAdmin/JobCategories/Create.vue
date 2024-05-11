@@ -43,7 +43,7 @@ function updateDescription(description) {
 
 onMounted(() => {
     initFlowbite();
-})
+});
 </script>
 
 <template>
