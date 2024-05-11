@@ -42,8 +42,8 @@ function submitCategory() {
     // form.small_description = form.small_description.replace(styleRegex, '');
     // form.description = form.description.replace(styleRegex, '');
 
-    form.small_description = htmlEncode(form.small_description);
-    form.description = htmlEncode(form.description);
+    // form.small_description = htmlEncode(form.small_description);
+    // form.description = htmlEncode(form.description);
 
     const post_url = `/myadmin/jobcategories/${props.jobcategory.slug}`;
     form.post(post_url);
