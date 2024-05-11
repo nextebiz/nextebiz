@@ -26,7 +26,7 @@ const form = useForm({
     quarterly: props.jobcategory.quarterly,
     picture: props.jobcategory.picture,
     small_description: props.jobcategory.small_description,
-    description: decodedData(props.jobcategory.description),
+    description: props.jobcategory.description,
     enabled: props.jobcategory.enabled == 1 ? true : false,
     _token: props.csrf_token,
 
