@@ -16,7 +16,7 @@ const form = useForm({
     job_category_id: props.jobpost.job_category_id,
     title: props.jobpost.title,
     slug: props.jobpost.slug,
-    featured: props.jobpost.featured === 1 ? true : false,
+    featured: props.jobpost.featured === "1" ? true : false,
     description: props.jobpost.description,
     small_description: props.jobpost.small_description,
     cities: props.jobpost.cities.toString(),
@@ -43,7 +43,7 @@ onMounted(() => {
     <Head title="Edit Job Post" />
     <AdminLayout>
         <MenuButton title="Edit Job Post" />
-        {{ props.jobpost }}
+
         <div class="pb-10">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <Nav />
