@@ -39,19 +39,16 @@ onMounted(() => {
                 <div v-for="category in jobcategories" :key="category.id" class="bg-gray-100 dark:bg-gray-700 p-0 pb-[40px] relative">
                     <div class="p-3">
                         <Link :href="`/expertise/${category.slug}`">
-                        <!-- <div class="bg-gray-500 mb-5 h-[130px] sm:h-[230px] md:h-[230px]"
+                        <div class="bg-gray-500 mb-5 h-[130px] sm:h-[230px] md:h-[230px]"
                             :style="`background-repeat: no-repeat;  background-size: cover;   background-position: center; background-image: url('${category.media[0]?.original_url}');`">
-                        </div> -->
-                        <div class="mb-3">
-                            <img :src="category.media[0]?.original_url" class="w-full hover:scale-[1.02] transition-all shadow-lg" />
                         </div>
                         </Link>
                     </div>
                     <Link :href="`/expertise/${category.slug}`">
-                    <h2 class="mb-[50px] hover:text-orange-500 transition-all hover:scale-105">{{ category.title }}</h2>
+                    <h2 class="mb-[50px] hover:text-orange-500 transition-all hover:scale-110">{{ category.title }}</h2>
                     </Link>
                     <div class="bottom-0 absolute w-full p-3">
-                        <button @click="changeSelectedCategory(category.id)" data-modal-target="crud-modal" data-modal-toggle="crud-modal" class="w-full hover:scale-[1.02] transition-all" type="button">
+                        <button @click="changeSelectedCategory(category.id)" data-modal-target="crud-modal" data-modal-toggle="crud-modal" class="w-full" type="button">
                             <div
                                 class="flex items-center justify-center text-lg bg-gray-200 dark:bg-gray-800 py-2 border border-gray-300 dark:border-gray-600 hover:border-orange-500 hover:text-orange-500 hover:fill-orange-500 dark:fill-white dark:hover:fill-orange-500">
 
