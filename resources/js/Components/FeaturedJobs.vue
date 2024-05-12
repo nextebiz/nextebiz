@@ -15,8 +15,9 @@ const props = defineProps({
     <div class=" py-[100px] bg-gray-900" style="  background-attachment: fixed;  background-repeat: no-repeat; background-size: cover; background-image: url('/assets/img/bg/laravel-11-bg.jpg');">
         <div class="container mx-auto myck px-5 ">
             <div class="text-white ">
-                <div v-if="full != 'full'" class="flex items-center">
-                    <h2 class="me-5">We are Hiring!</h2>
+                <div v-if="full != 'full'" class="block md:flex md:items-center mb-5 md:mb-0">
+                    <h2 class="mb-2 md:mb-0 me-0 md:me-5">We are Hiring!</h2>
+
                     <Link href="/open-positions" class="text-blue-400 flex">
                     <div class="mt-[5px]">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="me-3 w-[15px] h-[15px] fill-orange-500">
@@ -43,7 +44,7 @@ const props = defineProps({
                                 <path
                                     d="M470.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 256 265.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160zm-352 160l160-160c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L210.7 256 73.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0z" />
                             </svg>
-                            <span class="shadow-sm bg-black bg-opacity-65 rounded-lg px-3 py-1 text-white text-center p-0 m-0 text-xl md:text-2xl lg:text-3xl text-bold">{{ category.title }} Jobs</span>
+                            <span class="shadow-sm bg-black bg-opacity-65 rounded-lg px-3 py-1 text-white text-left p-0 m-0 text-xl md:text-2xl lg:text-3xl text-bold">{{ category.title }} Jobs</span>
                         </div>
                     </div>
                     <div class=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">

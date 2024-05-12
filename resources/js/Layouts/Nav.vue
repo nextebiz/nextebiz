@@ -2,28 +2,28 @@
     <div class="pb-[72px] sm:pb-[88px]">
 
         <nav class="fixed w-full z-50 bg-gray-200 border-b border-b-gray-300 dark:border-b-gray-800 dark:bg-gray-900">
-            <div class="flex flex-wrap items-center justify-between max-w-screen-xl mx-auto p-4">
+            <div class="flex flex-wrap items-center justify-between max-w-screen-xl mx-auto p-3 sm:p-4 py-4 ">
                 <Link href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
                 <img :src="theme == 'dark' ? '/assets/img/nextebiz-white.svg' : '/assets/img/nextebiz-black.svg'" class="h-10 sm:h-14" alt="Nextebiz Logo" />
                 </Link>
 
-                <div class="flex items-center lg:order-2 space-x-1 lg:space-x-2 rtl:space-x-reverse">
+                <div class="flex items-center lg:order-2 space-x-1 lg:space-x-2 rtl:space-x-reverse white">
 
-                    <Link href="/login" class="nav-link-top flex" v-if="$page.props.auth?.user == null">
+                    <Link href="/login" class="nav-link-top flex mr-2 p-0" v-if="$page.props.auth?.user == null">
                     <div class="flex items-center">
-                        <span class="mr-2">
+                        <span class="mr-1 md:mr-2">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="mt-1 w-3 dark:fill-orange-600">
                                 <path
                                     d="M144 144c0-44.2 35.8-80 80-80c31.9 0 59.4 18.6 72.3 45.7c7.6 16 26.7 22.8 42.6 15.2s22.8-26.7 15.2-42.6C331 33.7 281.5 0 224 0C144.5 0 80 64.5 80 144v48H64c-35.3 0-64 28.7-64 64V448c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V256c0-35.3-28.7-64-64-64H144V144z" />
                             </svg>
                         </span>
-                        <span>
+                        <span class="whitespace-nowrap">
                             Sign In
                         </span>
                     </div>
                     </Link>
 
-                    <div class="flex sm:items-center sm:ms-6" v-if="$page.props.auth?.user !== null">
+                    <div class="flex sm:items-center ms-2 sm:ms-6" v-if="$page.props.auth?.user !== null">
                         <!-- Settings Dropdown -->
                         <div class="ms-3 relative">
                             <Dropdown align="right" width="48">
@@ -232,7 +232,7 @@
                         </div>
                     </div>
                     <button data-collapse-toggle="mega-menu" type="button"
-                        class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+                        class=" inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
                         aria-controls="mega-menu" aria-expanded="false">
                         <span class="sr-only">Open main menu</span>
                         <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">

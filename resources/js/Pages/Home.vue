@@ -2,7 +2,7 @@
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue'
 import FeaturedJobs from '@/Components/FeaturedJobs.vue'
 
-import { Head } from '@inertiajs/vue3';
+import { Head, Link } from '@inertiajs/vue3';
 import { onMounted, onUnmounted } from "vue"
 
 import IndustriesVue from './Include/Industries.vue';
@@ -40,7 +40,18 @@ onMounted(() => {
                         unparalleled expertise.
                     </p>
                     <div class="flex">
-
+                        <div class="hidden sm:flex items-center">
+                            <Link href="/expertise/fullstack-development">
+                            <div
+                                class="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-gray-900 border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800">
+                                Go Fullstack
+                            </div>
+                            </Link>
+                            <svg class="w-5 h-5 ml-5 dark:fill-white" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd">
+                                </path>
+                            </svg>
+                        </div>
                         <div
                             class="inline-flex items-center justify-center px-5 py-3 mr-1 text-base font-medium text-center text-gray-900 dark:text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900">
                             Get started
@@ -60,7 +71,7 @@ onMounted(() => {
             </div>
         </section>
 
-        <section class="bg-white dark:bg-gray-800">
+        <section class="bg-white dark:bg-gray-700">
             <div class="gap-8 items-center py-8 px-4 mx-auto max-w-screen-xl xl:gap-16 md:grid md:grid-cols-2 sm:py-16 lg:px-6">
                 <img src="assets/img/home/full-stack-developer-pakistan.png" alt="nextebiz-full-stack-developer-pakistan">
 
@@ -125,14 +136,26 @@ onMounted(() => {
                         Next eBiz is a comprehensive mobile and web app development firm that harnesses cutting-edge technology and digital transformation to provide leading digital solutions for your business needs.
                         With a global clientele, our dedicated team of mobile app developers delivers top-tier solutions.
                     </p>
-                    <a href="#"
-                        class="inline-flex items-center text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:focus:ring-primary-900">
-                        Start Hiring Developers
-                        <svg class="ml-2 -mr-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd">
-                            </path>
-                        </svg>
-                    </a>
+
+                    <div class="flex items-center">
+
+                        <div
+                            class="inline-flex items-center justify-center px-5 py-3 mr-1 text-base font-medium text-center text-gray-900 dark:text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900">
+                            Kickstart your journey
+                            <svg class="w-5 h-5 ml-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd">
+                                </path>
+                            </svg>
+                        </div>
+                        <div class="flex items-center">
+                            <Link href="/expertise/">
+                            <div
+                                class="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-gray-900 border border-gray-300 rounded-lg hover:bg-gray-200 focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-500 dark:hover:bg-gray-600 dark:focus:ring-gray-800">
+                                Hire Top Talent
+                            </div>
+                            </Link>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -155,18 +178,28 @@ onMounted(() => {
                             prowess empowers renowned global organizations, providing them with a distinct competitive edge.
                         </p>
 
-                        <a href="#"
-                            class="inline-flex items-center text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:focus:ring-primary-900">
-                            Get started
-                            <svg class="ml-2 -mr-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd">
-                                </path>
-                            </svg>
-                        </a>
+                        <div class="flex items-center">
+
+                            <div
+                                class="inline-flex items-center justify-center px-5 py-3 mr-1 text-base font-medium text-center text-gray-900 dark:text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900">
+                                Get started today
+                                <svg class="w-5 h-5 ml-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                                        clip-rule="evenodd">
+                                    </path>
+                                </svg>
+                            </div>
+                            <div class="flex items-center">
+                                <Link href="/expertise/">
+                                <div
+                                    class="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-gray-900 border border-gray-300 rounded-lg hover:bg-gray-200 focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800">
+                                    Discover our expertise
+                                </div>
+                                </Link>
+                            </div>
+                        </div>
                     </div>
                     <img src="assets/img/home/banner-dedicated-staffing.png" alt="nextebiz-full-stack-developer-pakistan">
-
-
                 </div>
             </div>
 
