@@ -1,1 +1,0 @@
-import{_ as a}from"./AuthenticatedLayout-pbe_aIv-.js";import e from"./CandidateMenu-DOBpWYTZ.js";import{o,b as r,c as s,w as n,r as _,e as i}from"./app-DLDV6Kna.js";import"./SettingsStore-CyK0f9mA.js";const d={__name:"CandidateLayout",setup(c){return o(()=>{initFlowbite()}),(t,m)=>(r(),s(a,null,{default:n(()=>[_(t.$slots,"default"),i(e)]),_:3}))}};export{d as default};
