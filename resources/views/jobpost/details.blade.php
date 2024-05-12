@@ -18,7 +18,6 @@
                     </div>
                 </a>
 
-
                 <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ Request::url() }}" target="_blank">
                     <div class="text-xs text-gray-800 shadow-md rounded-lg text-center mr-3 border px-2 pt-3 hover:text-orange-500 hover:fill-orange-500 transition-all">
 
