@@ -1,1 +1,0 @@
-import{_ as e}from"./AuthenticatedLayout-C3O5A5V7.js";import{o as t,i as o,b as s,c as n,w as r,d as a}from"./app-CjD7_5nA.js";import"./SettingsStore-BI0YKEiC.js";const c=a("div",{class:"container m-auto"},[a("h1",null,"Trainee Program")],-1),p={__name:"Index",setup(i){return t(()=>{o()}),(_,l)=>(s(),n(e,null,{default:r(()=>[c]),_:1}))}};export{p as default};

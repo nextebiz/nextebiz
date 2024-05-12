@@ -73,7 +73,9 @@ onMounted(() => {
 
                                 {{ category.title }}
 
-                                <span class="flex items-center justify-center w-[25px] h-[25px] ms-3 bg-gray-300 dark:bg-gray-800 dark:text-white  text-center text-sm rounded-full">{{ category.portfolios_count }}</span>
+                                <span class="flex items-center justify-center w-[25px] h-[25px] ms-3 bg-gray-300 dark:bg-gray-800 dark:text-white  text-center text-sm rounded-full"
+                                :class="category.id == form.portfoliocategory_id ? 'bg-gray-700 text-white hover:text-white ' : ''"
+                                >{{ category.portfolios_count }}</span>
                             </div>
                         </div>
 
