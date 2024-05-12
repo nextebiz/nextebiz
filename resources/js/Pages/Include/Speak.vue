@@ -5,7 +5,6 @@ import MessageForm from "../MessageBox/MessageForm.vue";
 
 const props = defineProps({
     jobcategories: Object,
-    'categories': Object,
 })
 const form = useForm({
     selected_category: 1

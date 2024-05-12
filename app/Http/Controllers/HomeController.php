@@ -208,10 +208,12 @@ class HomeController extends Controller
         // $p = Portfolio::with('media')->where('id', '=', $portfolio->id)->first();
         // $m = $p->getMedia('images');
         // dd($p);
+        $jobcategories = JobCategory::with('media')->get();
 
         return Inertia::render('Portfolio/Show')->with([
             'portfolio' => $p,
-            'media' => $media
+            'media' => $media,
+            'jobcategories' => $jobcategories
         ]);
     }
     function porfolio_media_delete(Portfolio $portfolio, Request $request)

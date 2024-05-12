@@ -6,9 +6,11 @@ import { Head, Link } from "@inertiajs/vue3";
 import MySwiper from '@/Pages/Swiper/Swiper.vue';
 import Industries from "@/Pages/Include/Industries.vue";
 import Idea from "@/Pages/Include/Idea.vue";
+import Speak from "../Include/Speak.vue";
 
 
 const props = defineProps({
+    jobcategories:Object,
     categories: Object,
     portfolio: Object,
     media: Array
@@ -60,7 +62,7 @@ onMounted(() => {
                 </div>
 
                 <div class="mt-[50px]">
-                    <div class="text-center mb-[50px]">
+                    <div class="text-center mb-[20px]">
                         <h2 class="mb-5">Perks Of Hiring A Dedicated Team</h2>
                         <p class="text-xl">
                             A team that is inclined towards one goal and is dedicated to utilizing every means to achieve the goal makes it easier for the imagination to become a reality. The dedicated team ensures
@@ -68,9 +70,28 @@ onMounted(() => {
                         </p>
                     </div>
 
+                    <div class="mb-[30px] text-center">
+                        <div class="flex justify-center">
+                            <div
+                                class="whitespace-nowrap inline-flex items-center justify-center px-5 py-3 mr-1 text-base font-medium text-center text-gray-900 dark:text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900">
+                                Get started
+                                <svg class="w-5 h-5 ml-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                                        clip-rule="evenodd">
+                                    </path>
+                                </svg>
+                            </div>
+
+                            <Speak :jobcategories="props.jobcategories" />
+
+                        </div>
+                    </div>
+
+
+
                     <div class="mb-5">
                         <div class="grid grid-cols-1 md:grid-cols-3 gap-4 ">
-                            <div class="border border-gray-300 dark:border-gray-600 p-5 text-center bg-orange-50 dark:bg-gray-900"   >
+                            <div class="border border-gray-300 dark:border-gray-600 p-5 text-center bg-orange-50 dark:bg-gray-900">
                                 <h4 class="mb-5 ">Guaranteed Outcome
                                 </h4>
                                 <p>A team with proven expertise is highly reliable in terms of project delivery.
