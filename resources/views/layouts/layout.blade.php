@@ -21,9 +21,9 @@
     <meta property="og:locale:alternate" content="en-us" />
     <meta property="og:site_name" content="{{ config('app.name') }}" />
 
-    <meta property="og:image" content="{{ config('app.url') }}/assets/img/jobs.jpg">
-    <meta property="og:image:url" content="{{ config('app.url') }}/assets/img/jobs.jpg">
-    <meta property="og:image:width" content="300" />
+    <meta property="og:image" content="@yield('image_url')">
+    <meta property="og:image:url" content="@yield('image_url')">
+    <meta property="og:image:width" content="600" />
     <meta property="og:image:height" content="300" />
     <meta property="og:image:alt" content="@yield('title')">
 
