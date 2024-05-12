@@ -45,7 +45,7 @@
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-
+    <meta name="google-site-verification" content="i0-7C_MTastNvLC9vZWEx_gQlPQ6QDgUMk9IN4RBQQ4" />
     <!-- Scripts -->
     @routes
     @vite(['resources/js/app.js', 'resources/scss/app.scss', "resources/js/Pages/{$page['component']}.vue"])
