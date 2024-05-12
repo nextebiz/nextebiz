@@ -43,6 +43,7 @@ onMounted(() => {
     <Head title="Edit Job Post" />
     <AdminLayout>
         <MenuButton title="Edit Job Post" />
+        {{ props.jobpost }}
         <div class="pb-10">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <Nav />
