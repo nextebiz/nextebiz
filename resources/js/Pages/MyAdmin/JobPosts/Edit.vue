@@ -78,7 +78,6 @@ onMounted(() => {
                                     <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Featured Job</label>
 
                                     <div class="flex items-start py-2.5 bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg px-3">
-{{ form.featured }}
                                         <div class="flex items-center h-5">
                                             <input id="enabled" type="checkbox" v-model="form.featured"
                                                 class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-300 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800" />
