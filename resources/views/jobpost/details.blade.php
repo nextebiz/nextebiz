@@ -94,13 +94,13 @@
     </div>
 @endsection
 
-@section('title', $jobpost->title)
+@section('title', 'Hiring ' . $jobpost->title)
 @section('description', $jobpost->small_description)
 @section('created_at', $jobpost->created_at)
 @section('image_url', $jobpost->job_category->media[0]->original_url)
 
 
-{{-- @section('image_url', config('app.url') . "/assets/img/jobs.jpg") --}}
+{{-- @section('image_url', config('app.url') . '/assets/img/jobs.jpg') --}}
 
 {{-- @section('image_url', '/assets/img/nextebiz-black.svg') --}}
 {{-- content="{{ config('app.url') }}/assets/img/jobs.jpg" --}}
