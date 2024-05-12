@@ -25,25 +25,10 @@ class JobPostController extends Controller
     public function index()
     {
 
-        $jobposts = JobPost::with(['jobCategory'])
+        $jobposts = JobPost::with(['job_category'])
             ->withCount('users')
             ->orderBy('id', 'desc')
             ->paginate(10);
-
-        // dd($jobposts->toArray());
-        // foreach ($jobposts as $p) {
-        //     dump($p->countJobs());
-        // }
-
-        // $jobposts = JobPost::with(['jobCategory'])
-        //     // ->whereRelation('jobCategory', 'id', '!=', 1)
-        //     ->orderBy('id', 'desc')
-        //     ->paginate(10);
-
-
-        // $jobposts = JobPost::with(['jobCategory' => function ($query) {
-        //     return $query->where('title', 'like', '%Social%');
-        // }])->orderBy('id', 'desc')->paginate(10);
 
         return Inertia::render('MyAdmin/JobPosts/Index')->with(['jobposts' => $jobposts]);
     }
@@ -156,9 +141,15 @@ class JobPostController extends Controller
     public function shareJobPost(JobPost $jobpost)
     {
 
-        $category = $jobpost->jobCategory()->first();
+        $category = $jobpost->job_category()->first();
 
-        return view('jobpost.details')->with(['jobpost' => $jobpost, 'category' => $category->title]);
+        $jobpost2 = JobPost::with(['job_category' => function ($q) {
+            return $q->with('media')->select(['id', 'title'])->get();
+        }])->where('id', $jobpost->id)->first();
+
+
+        // dd($jobpost2->job_category->media);
+        return view('jobpost.details')->with(['jobpost' => $jobpost2, 'category' => $category->title]);
     }
 
     public function applyjob(StoreJobpostUserRequest $request)
@@ -204,7 +195,7 @@ class JobPostController extends Controller
             }
         }
         $countries = Country::all();
-        $category = $jobpost->jobCategory()->first();
+        $category = $jobpost->job_category()->first();
         return Inertia::render('Career/DisplayJob')->with([
             'jobpost' => $jobpost,
             'category' => $category->title,

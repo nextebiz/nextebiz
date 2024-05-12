@@ -40,7 +40,7 @@ class JobPost extends Model implements HasMedia
         ];
     }
 
-    public function jobCategory(): BelongsTo
+    public function job_category(): BelongsTo
     {
         return $this->belongsTo(JobCategory::class);
         // return $this->belongsTo(JobCategory::class, 'job_category_id');
