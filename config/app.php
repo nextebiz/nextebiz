@@ -22,6 +22,14 @@ return [
     'whatsapp2' => env('WHATSAPP2', '+92314661771'),
     'designation' => env('DESIGNATION', 'CEO'),
     'address' => env('ADDRESS', 'Islamabad, Pakistan'),
+
+    'seo_title' =>env('SEO_TITLE', 'Next eBiz - Fullstack Development company'),
+    'seo_description' =>env('SEO_DESCRIPTION', 'Fullstack Development company'),
+    'seo_keywords' =>env('SEO_KEYWORDS', 'Fullstack Development company, Pakistan'),
+    'seo_url' =>env('APP_URL', 'https://nextebiz.com'),
+    'seo_publis_date' =>env('SEO_PUBLISH_DATE', '12 May, 2024'),
+    'seo_image' =>env('SEO_IMAGE', 'https://nextebiz.com/assets/img/home/nextebiz-full-stack-developer-pakistan.png'),
+    'seo_twitter_handle' =>env('SEO_TWITTER_HANDLE', '@nextebiz'),
     /*
     |--------------------------------------------------------------------------
     | Application Environment

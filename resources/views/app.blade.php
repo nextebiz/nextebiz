@@ -3,6 +3,37 @@
 
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="description" content="{{ config('app.seo_description') }}">
+    <meta name="keywords" content="{{ config('app.seo_keywords') }}">
+
+    <meta property='article:published_time' content="{{ config('app.seo_publis_date') }}">
+    <meta property='article:section' content='software' />
+
+    <meta property="og:description" content="{{ config('app.seo_description') }}">
+    <meta property="og:title" content="{{ config('app.seo_title') }}">
+    <meta property="og:url" content="{{ url()->current() }}" />
+    <meta property="og:type" content="article" />
+    <meta property="og:locale" content="en-us" />
+    <meta property="og:locale:alternate" content="en-us" />
+    <meta property="og:site_name" content="{{ config('app.seo_title') }}" />
+
+    <meta property="og:image" content="{{ config('app.seo_image') }}">
+    <meta property="og:image:url" content="{{ config('app.seo_image') }}">
+    <meta property="og:image:width" content="600" />
+    <meta property="og:image:height" content="300" />
+    <meta property="og:image:alt" content="{{ config('app.seo_title') }}">
+
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="{{ config('app.seo_description') }}">
+    <meta name="twitter:site" content="{{ config('app.seo_description') }}" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	{{-- <meta http-equiv="Content-Security-Policy" content="style-src 'unsafe-inline';"> --}}
 
