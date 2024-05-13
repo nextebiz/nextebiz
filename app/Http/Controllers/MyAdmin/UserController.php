@@ -15,7 +15,8 @@ class UserController extends Controller
     public function index()
     {
         $users = User::with(['media', 'roles'])->orderBy('id', 'desc')->paginate(20);
-        return Inertia::render('MyAdmin/Users/Index')->with(['users'=>$users]);
+        $total_users = User::count();
+        return Inertia::render('MyAdmin/Users/Index')->with(['users' => $users, 'total_users' => $total_users]);
     }
 
     /**

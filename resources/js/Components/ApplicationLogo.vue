@@ -6,8 +6,8 @@
 
 <script setup>
 
-import { SettingsStore } from "@/store/SettingsStore";
 import { computed } from "vue";
+import { SettingsStore } from "@/store/SettingsStore";
 
 const settingsStore = SettingsStore()
 

@@ -58,6 +58,8 @@ onMounted(() => {
                 </div>
 
                 <div>
+                    <h3 class="text-center mb-1">Project Screenshots</h3>
+                    <div class="text-center mb-5 text-2xl">Double tap on image to zoom in/out</div>
                     <MySwiper :images="media" />
                 </div>
 

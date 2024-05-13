@@ -1,3 +1,42 @@
+
+<script setup>
+import { onMounted, computed, onUpdated } from "vue";
+import { Link } from "@inertiajs/vue3";
+
+import { SettingsStore } from "@/store/SettingsStore";
+import Dropdown from '@/Components/Dropdown.vue';
+import DropdownLink from '@/Components/DropdownLink.vue';
+
+const settingsStore = SettingsStore()
+
+function toggleTheme() {
+    setTheme(theme.value === 'dark' ? ('light') : ('dark'));
+}
+const theme = computed(() => {
+    return settingsStore.getTheme;
+})
+
+function setTheme(theme) {
+    settingsStore.setTheme(theme)
+}
+
+function checkTheme() {
+    if (theme.value == "dark") {
+        document.documentElement.classList.add('dark');
+    } else {
+        document.documentElement.classList.remove('dark');
+    }
+}
+
+onUpdated(() => {
+    checkTheme();
+})
+onMounted(() => {
+    checkTheme();
+})
+
+</script>
+
 <template>
     <div class="pb-[72px] sm:pb-[88px]">
 
@@ -165,7 +204,7 @@
                                                 </div>
                                                 <div>
                                                     <span
-                                                        class="inline-flex items-center justify-center w-3 h-3 p-3 ms-3 text-sm font-medium text-blue-800 bg-blue-100 rounded-full dark:bg-blue-900 dark:text-blue-300">3</span>
+                                                        class="inline-flex items-center justify-center w-3 h-3 p-3 ms-3 text-sm font-medium text-blue-800 bg-blue-100 rounded-full dark:bg-blue-900 dark:text-blue-300">{{ settingsStore.getTotalMessages }}</span>
 
                                                 </div>
                                             </div>
@@ -295,42 +334,5 @@
 </template>
 
 
-<script setup>
-import { onMounted, computed, onUpdated } from "vue";
-import { Link } from "@inertiajs/vue3";
-
-import { SettingsStore } from "@/store/SettingsStore";
-import Dropdown from '@/Components/Dropdown.vue';
-import DropdownLink from '@/Components/DropdownLink.vue';
-
-const settingsStore = SettingsStore()
-
-function toggleTheme() {
-    setTheme(theme.value === 'dark' ? ('light') : ('dark'));
-}
-const theme = computed(() => {
-    return settingsStore.getTheme;
-})
-
-function setTheme(theme) {
-    settingsStore.setTheme(theme)
-}
-
-function checkTheme() {
-    if (theme.value == "dark") {
-        document.documentElement.classList.add('dark');
-    } else {
-        document.documentElement.classList.remove('dark');
-    }
-}
-
-onUpdated(() => {
-    checkTheme();
-})
-onMounted(() => {
-    checkTheme();
-})
-
-</script>
 
 <style lang="scss" scoped></style>

@@ -11,6 +11,7 @@ use App\Http\Controllers\MyAdmin\PortfolioCategoryController;
 use App\Http\Controllers\MyAdmin\PortfolioController;
 use App\Http\Controllers\MyAdmin\UserController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\TestDBController;
 use App\Mail\Email;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -28,9 +29,9 @@ Route::get('/swiper', function () {
     return Inertia::render('Swiper/Index');
 });
 
-Route::get('/dashboard', function () {
-    return Inertia::render('Dashboard');
-})->middleware(['auth', 'verified', 'role:admin'])->name('dashboard');
+// Route::get('/dashboard', function () {
+//     return Inertia::render('Dashboard');
+// })->middleware(['auth', 'verified', 'role:admin'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     // Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -45,6 +46,8 @@ Route::middleware(['auth', 'role:candidate'])->group(function () {
 });
 
 // Route::get('/download/resume/{id}/{filename}', [CandidateController::class, 'download'])->name('download.resume');
+
+Route::resource('testdb', TestDBController::class);
 
 Route::middleware(['auth', 'role:admin'])->name('myadmin.')->prefix('myadmin')->group(function () {
     Route::get('/', [AdminController::class, 'index'])->name('index');

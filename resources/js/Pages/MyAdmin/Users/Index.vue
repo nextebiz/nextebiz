@@ -6,8 +6,13 @@ import { onMounted } from 'vue';
 import MenuButton from '@/Components/MenuButton.vue';
 import { TailwindPagination } from 'laravel-vue-pagination';
 
+import { SettingsStore } from "@/store/SettingsStore";
+
+const settingsStore = SettingsStore();
+
 const props = defineProps({
-    users: Object
+    users: Object,
+    total_users: Number
 })
 
 const form = useForm({
@@ -26,6 +31,7 @@ function getResults(page) {
 }
 
 onMounted(() => {
+    settingsStore.setTotalUsers(props.total_users);
     initFlowbite();
 })
 </script>
@@ -35,7 +41,7 @@ onMounted(() => {
     <Head title="Users" />
     <AdminLayout>
 
-        <MenuButton title="Users" />
+        <MenuButton :title="`Users - ${settingsStore.getTotalUsers}`" />
         <div class="py-10">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="relative overflow-x-auto">
@@ -61,33 +67,33 @@ onMounted(() => {
                                     </td>
                                     <td scope="col" class="text-left border border-gray-100 dark:border-gray-600 px-6 py-3 ">
                                         <div>
-                                             <strong class="text-orange-500">User Role: </strong>
+                                            <strong class="text-orange-500">User Role: </strong>
                                             {{ user.roles[0]?.name }}
                                         </div>
                                         <div>
-                                             <strong class="text-orange-500">Resume File: </strong>
+                                            <strong class="text-orange-500">Resume File: </strong>
                                             <a v-if="user.media[0]?.file_name" target="_blank" class="text-blue-500 font-bold" :href="user.media[0]?.original_url">{{ user.media[0]?.file_name }}</a>
                                             <span v-else>no file</span>
                                         </div>
                                         <div>
-                                             <strong class="text-orange-500">Name: </strong>
+                                            <strong class="text-orange-500">Name: </strong>
                                             {{ user.name }}
                                         </div>
                                         <div>
-                                             <strong class="text-orange-500">Email: </strong>
+                                            <strong class="text-orange-500">Email: </strong>
                                             {{ user.email }}
 
                                         </div>
                                         <div>
-                                             <strong class="text-orange-500">Phone: </strong>
+                                            <strong class="text-orange-500">Phone: </strong>
                                             {{ user.phone }}
                                         </div>
                                         <div>
-                                             <strong class="text-orange-500">Ccountry: </strong>
+                                            <strong class="text-orange-500">Ccountry: </strong>
                                             {{ user.country }}
                                         </div>
                                         <div>
-                                             <strong class="text-orange-500">Created at: </strong>
+                                            <strong class="text-orange-500">Created at: </strong>
                                             {{ user.created_at }}
                                         </div>
 

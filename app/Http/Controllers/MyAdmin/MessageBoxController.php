@@ -27,8 +27,9 @@ class MessageBoxController extends Controller
         if ($mark_as_read == 2) {
         } else {
         }
+        $total_messages = MessageBox::where('mark_as_read', '=', 0)->count();
 
-        return Inertia::render('MyAdmin/Messages/Index')->with(['messages' => $messages, 'mark_as_read' => $mark_as_read]);
+        return Inertia::render('MyAdmin/Messages/Index')->with(['messages' => $messages, 'mark_as_read' => $mark_as_read, 'total_messages' => $total_messages]);
     }
 
 

@@ -4,9 +4,18 @@ import { onMounted } from 'vue';
 import MenuButton from '@/Components/MenuButton.vue';
 import AdminLayout from "./AdminLayout.vue";
 
+import { SettingsStore } from "@/store/SettingsStore";
+const settingsStore = SettingsStore()
+
+const props = defineProps({
+    total_messages: Number,
+    total_users: Number
+})
 
 onMounted(() => {
     initFlowbite();
+    settingsStore.setTotalMessages(props.total_messages);
+    settingsStore.setTotalUsers(props.total_users);
     // document.getElementById('drawerbtn').click();
 })
 </script>
@@ -16,6 +25,7 @@ onMounted(() => {
     <Head title="Candidate Dashboard" />
     <AdminLayout>
         <MenuButton title="Admin Dashboard" />
+
         <div class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
 
@@ -48,14 +58,14 @@ onMounted(() => {
                         </div>
                         <div class=" text-gray-900 dark:text-white ">
                             <div class=" bg-gray-200 dark:bg-gray-800 p-6 rounded-lg ">
-                                <h4 class="mb-3">Client Messages</h4>
+                                <h4 class="mb-3">Client Messages : <span class="text-green-500">{{ settingsStore.getTotalMessages }}</span></h4>
                                 <Link class="btn-dark" :href="route('myadmin.messages.index')">Client Messages</Link>
                             </div>
                         </div>
 
                         <div class=" text-gray-900 dark:text-white ">
                             <div class=" bg-gray-200 dark:bg-gray-800 p-6 rounded-lg ">
-                                <h4 class="mb-3">Users</h4>
+                                <h4 class="mb-3">Users : <span class="text-green-500">{{ settingsStore.getTotalUsers }}</span></h4>
                                 <Link class="btn-dark" :href="route('myadmin.users.index')">Users</Link>
                             </div>
                         </div>

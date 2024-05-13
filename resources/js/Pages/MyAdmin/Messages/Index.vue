@@ -5,11 +5,14 @@ import { Head, Link, router, useForm } from '@inertiajs/vue3';
 import { onMounted } from 'vue';
 import MenuButton from '@/Components/MenuButton.vue';
 import { TailwindPagination } from 'laravel-vue-pagination';
+import { SettingsStore } from "@/store/SettingsStore";
 
+const settingsStore = SettingsStore();
 
 const props = defineProps({
     messages: Object,
-    mark_as_read: Number
+    mark_as_read: Number,
+    total_messages: Number
 })
 
 const form = useForm({
@@ -27,6 +30,12 @@ function getResults(page) {
 }
 
 function markAsRead(id) {
+    settingsStore.setTotalMessages(settingsStore.getTotalMessages - 1);
+    form.message_id = id;
+    form.patch(route('myadmin.messages.update', id), { preserveScroll: true });
+}
+function markAsUnRead(id) {
+    settingsStore.setTotalMessages(settingsStore.getTotalMessages + 1);
     form.message_id = id;
     form.patch(route('myadmin.messages.update', id), { preserveScroll: true });
 }
@@ -40,7 +49,10 @@ function deleteMessage(id) {
 
 
 onMounted(() => {
+
     initFlowbite();
+
+    settingsStore.setTotalMessages(props.total_messages)
 })
 </script>
 
@@ -50,7 +62,8 @@ onMounted(() => {
 
     <AdminLayout>
 
-        <MenuButton title="Messages" />
+        <MenuButton :title="`Messages ${settingsStore.getTotalMessages}`" />
+
         <div class="py-10">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="relative overflow-x-auto">
@@ -142,7 +155,7 @@ onMounted(() => {
                                     </td>
                                     <td scope="col" class="text-center border border-gray-100 dark:border-gray-600 px-6 py-3 sm:w-[60px]">
 
-                                        <button v-if="message.mark_as_read == 1" @click.prevent="markAsRead(message.id)" class="btn-dark font-bold whitespace-nowrap">Mark As Unread</button>
+                                        <button v-if="message.mark_as_read == 1" @click.prevent="markAsUnRead(message.id)" class="btn-dark font-bold whitespace-nowrap">Mark As Unread</button>
 
                                         <button v-else @click.prevent="markAsRead(message.id)" class="btn-green font-bold whitespace-nowrap">Mark As Read</button>
                                     </td>
