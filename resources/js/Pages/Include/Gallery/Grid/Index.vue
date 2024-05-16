@@ -10,18 +10,18 @@ const props = defineProps({
 let gridclass = "";
 
 onBeforeMount(() => {
-    gridclass = "grid grid-cols-2 md:grid-cols-2 gap-4";
+    gridclass = "grid grid-cols-1 sm:grid-cols-2 gap-4";
 
     if (props.gallerystyle == "grid5") {
-        gridclass = "grid grid-cols-2 md:grid-cols-5 gap-4";
+        gridclass = "grid grid-cols-1 sm:grid grid-cols-2 md:grid-cols-5 gap-4";
     } else if (props.gallerystyle == "grid4") {
-        gridclass = "grid grid-cols-2 md:grid-cols-4 gap-4";
+        gridclass = "grid grid-cols-1 sm:grid grid-cols-2 md:grid-cols-4 gap-4";
     }
     else if (props.gallerystyle == "grid3") {
-        gridclass = "grid grid-cols-2 md:grid-cols-3 gap-4";
+        gridclass = "grid grid-cols-1 sm:grid grid-cols-2 md:grid-cols-3 gap-4";
     }
     else if (props.gallerystyle == "grid1") {
-        gridclass = "grid grid-cols-1 md:grid-cols-1 gap-4";
+        gridclass = "grid grid-cols-1 gap-4";
     }
 
 })
