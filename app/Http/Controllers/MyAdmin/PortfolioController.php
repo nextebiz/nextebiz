@@ -114,7 +114,7 @@ class PortfolioController extends Controller
             'small_description' => $request->input('small_description'),
             'description' => $request->input('description'),
             'enabled' => $request->input('enabled'),
-            'default_image_url' => $request->input('default_image_url'),
+            'default_image_url' => $request->input('default_image_url') == null ? '' : $request->input('default_image_url'),
             'gallerystyle' => $request->input('gallerystyle'),
             'galleryimages' => $request->input('galleryimages'),
         ]);

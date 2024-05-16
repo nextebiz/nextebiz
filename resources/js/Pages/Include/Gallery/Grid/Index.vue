@@ -35,7 +35,7 @@ onMounted(() => {
 <template>
 
     <div :class="gridclass">
-        <div v-for="image in props.images" :key="image" class="flex items-center justify-center ">
+        <div v-for="image in props.images" :key="image" class="flex items-start justify-center ">
             <img class="h-auto max-w-full rounded-lg" :src="image" alt="">
         </div>
     </div>
