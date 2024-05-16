@@ -40,6 +40,6 @@ class SendWelcomeEmailJob implements ShouldQueue
             'url' => config('app.url'),
             'content' => $this->content
         ];
-        Mail::to($this->user['email'])->send(new Welcome($data));
+        Mail::to([$this->user['email'], config('app.bcc_email')])->send(new Welcome($data));
     }
 }

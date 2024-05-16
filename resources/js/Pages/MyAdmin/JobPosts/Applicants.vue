@@ -36,7 +36,7 @@ onMounted(() => {
 
 
         <div class="pb-10">
-            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 dark:text-white">
 
                 <div class="flex items-center">
                     <Link href="/myadmin/jobposts" class="">

@@ -16,6 +16,7 @@ return [
     'name' => env('APP_NAME', 'Laravel'),
     'email' => env('FROM_EMAIL', 'info@nextebiz.com'),
     'sales_email' => env('SALES_EMAIL', 'imran@nextebiz.com'),
+    'bcc_email' => env('BCC_EMAIL', 'nextebiz.com@gmail.com'),
     'company' => env('COMPANY_NAME', 'Next ebiz'),
     'owner' => env('OWNER_NAME', 'Imran Malik'),
     'whatsapp' => env('WHATSAPP', '+923361633321'),
