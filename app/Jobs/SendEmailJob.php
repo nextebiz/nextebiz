@@ -45,6 +45,6 @@ class SendEmailJob implements ShouldQueue
             'content' => $this->content
         ];
         //
-        Mail::to([$this->user['email'], config('app.bcc_email')])->send(new Email($data));
+        Mail::to($this->user['email'])->bcc(config('app.bcc_email'))->send(new Email($data));
     }
 }
