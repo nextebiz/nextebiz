@@ -30,7 +30,10 @@ class UpdateJobCategoryRequest extends FormRequest
             'picture' => ['nullable'],
             'small_description' => ['required'],
             'description' => ['required'],
-            'enabled' => ['required']
+            'enabled' => ['required'],
+            'default_image_url' => ['nullable'],
+            'gallerystyle' => ['required'],
+            'galleryimages' => ['nullable'],
         ];
     }
     // protected function prepareForValidation(): void

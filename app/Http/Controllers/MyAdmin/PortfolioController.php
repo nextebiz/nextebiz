@@ -48,8 +48,8 @@ class PortfolioController extends Controller
         $portfolio =  Portfolio::create([
             "title" => $request->input('title'),
             "portfolio_category_id" => $request->input('portfolio_category_id'),
-            "small_description" => $request->input('small_description'),
-            "description" => $request->input('description'),
+            "small_description" => '', //$request->input('small_description'),
+            "description" => '', // $request->input('description'),
             "enabled" => $request->input('enabled'),
         ]);
 
@@ -65,7 +65,9 @@ class PortfolioController extends Controller
         //     });
         // }
 
-        return to_route('myadmin.portfolio.index');
+        // return to_route('myadmin.portfolio.index');
+
+        return to_route('myadmin.portfolio.edit', ['portfolio' => $portfolio]);
     }
 
     /**
@@ -85,7 +87,6 @@ class PortfolioController extends Controller
 
         // $portfolio = $portfolio->with('media')->first();
         $portfolio = Portfolio::with('media')->where('id', '=', $portfolio->id)->first();
-
         // dd($portfolio);
 
         return Inertia::render('MyAdmin/Portfolio/Edit')->with([
@@ -101,29 +102,31 @@ class PortfolioController extends Controller
     {
         $pictures = $request->file('pictures');
 
-        $portfolio->update($request->all());
+        // $portfolio->update($request->all());
+
         // dd($request->all());
-        // $portfolio->update([
-        //     "title" => $request->input('title'),
-        //     "portfolio_category_id" => $request->input('portfolio_category_id'),
-        //     "small_description" => $request->input('small_description'),
-        //     "description" => $request->input('description'),
-        //     "enabled" => $request->input('enabled'),
-        // ]);
 
-        // if ($pictures) {
+        $portfolio->update([
+            'title' => $request->input('title'),
+            'portfolio_category_id' => $request->input('portfolio_category_id'),
+            'pictures' => $request->input('pictures'),
+            // 'default_media_id'=>$request->input('default_media_id'),
+            'small_description' => $request->input('small_description'),
+            'description' => $request->input('description'),
+            'enabled' => $request->input('enabled'),
+            'default_image_url' => $request->input('default_image_url'),
+            'gallerystyle' => $request->input('gallerystyle'),
+            'galleryimages' => $request->input('galleryimages'),
+        ]);
 
-        //     $portfolio->addMultipleMediaFromRequest(['pictures'])->each(function ($file) {
-        //         $file->toMediaCollection('images');
-        //     });
-        // }
 
         if ($request->file('pictures')) {
             foreach ($request->file('pictures') as $photo) {
                 $portfolio->addMedia($photo)->toMediaCollection('images', 'media');
             }
         }
-        return to_route('myadmin.portfolio.index');
+        return to_route('myadmin.portfolio.edit', ['portfolio' => $portfolio->slug]);
+        // return to_route('myadmin.portfolio.index');
     }
 
     /**

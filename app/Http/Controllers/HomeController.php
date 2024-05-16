@@ -165,8 +165,6 @@ class HomeController extends Controller
         // dd($request->all());
 
         $portfoliocategory_id = $request->input('portfoliocategory_id');
-        if ($portfoliocategory_id) {
-        }
 
         $portfoliocategories = PortfolioCategory::select(['id', 'title', 'enabled'])->withCount('portfolios')->where('enabled', 1)->get();
 
@@ -203,12 +201,12 @@ class HomeController extends Controller
 
 
         $media =  $portfolio->getMedia("images")->pluck('original_url');
-        // dd($media);
 
         // $p = Portfolio::with('media')->where('id', '=', $portfolio->id)->first();
         // $m = $p->getMedia('images');
-        // dd($p);
         $jobcategories = JobCategory::with('media')->get();
+
+        // dd($p);
 
         return Inertia::render('Portfolio/Show')->with([
             'portfolio' => $p,

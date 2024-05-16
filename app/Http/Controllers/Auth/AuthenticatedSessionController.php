@@ -53,7 +53,9 @@ class AuthenticatedSessionController extends Controller
             return redirect()->intended(route('employer.index', absolute: false));
         }
 
-        return abort(404);
+        return to_route('login');
+
+        // return abort(404);
     }
 
     /**

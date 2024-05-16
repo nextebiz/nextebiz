@@ -15,7 +15,9 @@ class JobCategory extends Model implements HasMedia
 {
     use HasFactory, Sluggable, InteractsWithMedia;
 
-    protected $fillable = ['title', 'min', 'max', 'monthly', 'quarterly', 'small_description', 'description', 'enabled'];
+    protected $fillable = ['title', 'min', 'max', 'monthly', 'quarterly', 'small_description', 'description', 'gallerystyle', 'default_image_url', 'gallerystyle', 'galleryimages', 'enabled'];
+
+
     public function getRouteKeyName()
     {
         return 'slug';

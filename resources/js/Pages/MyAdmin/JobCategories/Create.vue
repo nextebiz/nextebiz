@@ -19,10 +19,11 @@ const form = useForm({
     max: 0,
     monthly: 0,
     quarterly: 0,
-    picture: '',
+    pictures: '',
     small_description: '',
     description: '',
     enabled: true,
+
 });
 
 function submitCategory() {
@@ -108,13 +109,13 @@ onMounted(() => {
 
 
                             <div class="mb-5">
-                                <label for="picture" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Picture</label>
-                                <input type="file" id="picture" accept="image/x-png,image/gif,image/jpeg" class="mt-1 block w-full" @input="form.picture = $event.target.files[0]"  />
-                                <div v-if="props.errors?.picture" class="form_error">{{ props.errors?.picture }}</div>
+                                <label for="pictures" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Pictures (jpg image format allowed)</label>
+                                <input type="file" id="pictures" multiple accept="image/jpeg" class="mt-1 block w-full" @input="form.pictures = $event.target.files" />
+                                <div v-if="props.errors?.pictures" class="form_error">{{ props.errors?.pictures }}</div>
                             </div>
 
 
-                            <div class="mb-5">
+                            <div class="mb-5 hidden">
                                 <label for="small_description" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Small Description</label>
 
                                 <textarea id="small_description" v-model="form.small_description"
@@ -124,7 +125,7 @@ onMounted(() => {
 
                             </div>
 
-                            <div class="mb-5">
+                            <div class="mb-5 hidden">
                                 <label for="description" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Job Description</label>
 
                                 <MyCKEditor :content="form.description" @updateContent="updateDescription" class="myck" :class="props.errors?.description ? 'border-red-500 p-[1px] bg-red-500' : ''">

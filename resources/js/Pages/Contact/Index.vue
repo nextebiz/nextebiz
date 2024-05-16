@@ -18,7 +18,8 @@ onMounted(() => {
 
 <template>
     <AuthenticatedLayout>
-        <Head title="Contact Us"/>
+
+        <Head title="Contact Us" />
         <div class="container m-auto my-[50px] dark:text-white px-3 sm:px-5">
             <h1 class="mb-5">Contact</h1>
 
@@ -61,9 +62,13 @@ onMounted(() => {
                 </div>
                 <div class="p-3">
                     <h4 class="mb-3">Send Us Message</h4>
-                    <p class="mb-3">Fill in the form. Our team will contact with for further discussion. </p>
+                    <p class="mb-3">
+                        For questions about pricing or how our services can benefit your organization, please complete and submit the form below and a member of our team will be in touch to discuss your
+                        requirements.
+
+                    </p>
                     <div>
-                        <MessageForm :jobcategories="props.jobcategories" :selected_category="form.selected_category" :prices="false"/>
+                        <MessageForm :jobcategories="props.jobcategories" :selected_category="form.selected_category" :prices="false" />
                     </div>
                 </div>
             </div>

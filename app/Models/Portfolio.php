@@ -19,7 +19,7 @@ class Portfolio extends Model implements HasMedia
     {
         return 'slug';
     }
-    protected $fillable = ['title', 'slug', 'portfolio_category_id', 'default_media_id', 'small_description', 'description', 'enabled'];
+    protected $fillable = ['title', 'slug', 'portfolio_category_id', 'small_description', 'description', 'default_image_url', 'gallerystyle', 'galleryimages',  'enabled'];
 
 
     public function sluggable(): array

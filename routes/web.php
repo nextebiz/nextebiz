@@ -52,10 +52,14 @@ Route::resource('testdb', TestDBController::class);
 Route::middleware(['auth', 'role:admin'])->name('myadmin.')->prefix('myadmin')->group(function () {
     Route::get('/', [AdminController::class, 'index'])->name('index');
     Route::resource('jobcategories', JobCategoryController::class);
-    Route::post('jobcategories/{jobcategory}', [JobCategoryController::class, 'update']);
+    Route::post('jobcategories/{jobcategory}', [JobCategoryController::class, 'update'])->name('jobcategory.postupdate');
+    Route::post('/jobcategory/{jobcategory}/media/{media}/delete', [JobCategoryController::class, 'media_delete'])->name('jobcategory.media.delete');
+
+
     Route::resource('jobposts', JobPostController::class);
     Route::resource('portfolio', PortfolioController::class);
     Route::post('portfolio/{portfolio}', [PortfolioController::class, 'update']);
+
 
     Route::resource('messages', MessageBoxController::class);
 
@@ -118,6 +122,7 @@ Route::get('/expertise/{jobcategory}', [HomeController::class, 'expertise_detail
 Route::get('/portfolio', [HomeController::class, 'portfolios'])->name('portfolio.index');
 Route::get('/portfolio/{portfolio}', [HomeController::class, 'portfolio_show'])->name('portfolio.show');
 Route::post('/portfolio/{portfolio}/media/delete', [HomeController::class, 'porfolio_media_delete'])->name('portfolio.media.delete');
+
 
 Route::get('/trainee-program', function () {
     return Inertia::render("TraineeProgram/Index");

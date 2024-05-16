@@ -11,13 +11,14 @@ const props = defineProps({
 })
 
 const form = useForm({
-    job_category_id: 0
+    job_category_id: 0,
+    job_category_slug: '',
 })
 
-function deleteJobCategory(id) {
+function deleteJobCategory(slug) {
     if (confirm('Are you sure you want to delete this category?')) {
-        form.job_category_id = id;
-        form.delete(route('myadmin.jobcategories.destroy', id));
+        form.job_category_slug = slug;
+        form.delete(route('myadmin.jobcategories.destroy', slug));
     }
 }
 
@@ -105,7 +106,7 @@ onMounted(() => {
                                         <Link :href="`/myadmin/jobcategories/${category.slug}/edit`" class="btn-edit">Edit</Link>
                                     </td>
                                     <td class="text-center border border-gray-100 dark:border-gray-600 px-6 py-4">
-                                        <button @click="deleteJobCategory(category.id)" class="btn-delete">Delete</button>
+                                        <button @click="deleteJobCategory(category.slug)" class="btn-delete">Delete</button>
                                     </td>
                                 </tr>
                             </tbody>

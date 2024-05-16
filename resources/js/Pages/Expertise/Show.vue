@@ -7,6 +7,10 @@ import Nav from "./Nav.vue";
 import FeaturedJobs from '@/Components/FeaturedJobs.vue'
 import IndustriesVue from "../Include/Industries.vue";
 import Idea from "../Include/Idea.vue";
+// import MySwiper from '@/Pages/Swiper/Swiper.vue';
+import MySwiper from '@/Pages/Include/Gallery/Swiper/Swiper.vue';
+import CarouselAutoscroll from '@/Pages/Include/Gallery/CarouselAutoscroll/Index.vue';
+import ImageGrid from "@/Pages/Include/Gallery/Grid/Index.vue";
 
 const props = defineProps({
     jobcategories: Object,
@@ -14,8 +18,13 @@ const props = defineProps({
     'categories': Object,
     'jobpostuser': Array
 })
+
+
 const form = useForm({
-    selected_category: 1
+    grid_array: ['grid5', 'grid4', 'grid3', 'grid2', 'grid1'],
+    selected_category: 1,
+    galleryimages: props.jobcategory.galleryimages == "null" || props.jobcategory.galleryimages == null ? [] : JSON.parse(props.jobcategory.galleryimages),
+
 })
 function changeSelectedCategory(id) {
     console.log('hi')
@@ -81,15 +90,27 @@ onMounted(() => {
 
 
                     <h1 class="mb-5">{{ jobcategory.title }}</h1>
-
-                    <div class="myck mb-5" v-if="jobcategory.media.length">
-                        <img :src="jobcategory.media[0]?.original_url" />
+                    <div class="myck mb-5" v-if="jobcategory.default_image_url != ''">
+                        <img :src="jobcategory.default_image_url == '' ? '' : jobcategory.default_image_url" />
                     </div>
 
                     <div class="myck mb-5">
                         <div v-html="jobcategory.description"></div>
                     </div>
+
+                    <div class="container m-auto mb-5" v-if="form.grid_array.indexOf(jobcategory.gallerystyle) > -1">
+                        <ImageGrid :images="form.galleryimages" :gallerystyle="jobcategory.gallerystyle" />
+                    </div>
+
+                    <div class="container m-auto mb-5" v-if="jobcategory.gallerystyle == 'carouselauto'">
+                        <CarouselAutoscroll :images="form.galleryimages" />
+                    </div>
+
+                    <div class="container m-auto mb-5" v-if="jobcategory.gallerystyle == 'carousel'">
+                        <MySwiper :images="form.galleryimages" />
+                    </div>
                     <div class=" w-full p-0 mb-5">
+
                         <button @click="changeSelectedCategory(jobcategory.id)" data-modal-target="crud-modal" data-modal-toggle="crud-modal" class="w-full" type="button">
                             <div class="block sm:flex items-center justify-center py-3 text-xl font-bold rounded-lg text-white  bg-orange-600 hover:bg-orange-500 hover:border-orange-800   transition-all">
                                 <div>
@@ -104,6 +125,7 @@ onMounted(() => {
                                             d="M464 256A208 208 0 1 1 48 256a208 208 0 1 1 416 0zM0 256a256 256 0 1 0 512 0A256 256 0 1 0 0 256zM294.6 135.1c-4.2-4.5-10.1-7.1-16.3-7.1C266 128 256 138 256 150.3V208H160c-17.7 0-32 14.3-32 32v32c0 17.7 14.3 32 32 32h96v57.7c0 12.3 10 22.3 22.3 22.3c6.2 0 12.1-2.6 16.3-7.1l99.9-107.1c3.5-3.8 5.5-8.7 5.5-13.8s-2-10.1-5.5-13.8L294.6 135.1z" />
                                     </svg>
                                 </div>
+
                                 <div>
                                     <span>
                                         Starting from ${{ jobcategory.min }} / Hour
@@ -111,6 +133,8 @@ onMounted(() => {
                                 </div>
                             </div>
                         </button>
+                        <!-- {{ form.galleryimages }} -->
+
                     </div>
                     <div class="mb-[50px]" v-if="categories[0].job_posts.length > 0">
                         <FeaturedJobs :categories="categories" :jobpostuser="jobpostuser"></FeaturedJobs>

@@ -2,34 +2,45 @@
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout.vue"
 import { onMounted } from "vue";
 import { initFlowbite } from 'flowbite'
-import { Head, Link } from "@inertiajs/vue3";
-import MySwiper from '@/Pages/Swiper/Swiper.vue';
+import { Head, Link, useForm } from "@inertiajs/vue3";
 import Industries from "@/Pages/Include/Industries.vue";
 import Idea from "@/Pages/Include/Idea.vue";
 import Speak from "../Include/Speak.vue";
+// import MySwiper from '@/pages/Swiper/Swiper.vue';
+
+import MySwiper from "@/Pages/Include/Gallery/Swiper/Swiper.vue";
+import CarouselAutoscroll from '@/Pages/Include/Gallery/CarouselAutoscroll/Index.vue';
+import ImageGrid from "@/Pages/Include/Gallery/Grid/Index.vue";
 
 
 const props = defineProps({
-    jobcategories:Object,
+    jobcategories: Object,
     categories: Object,
     portfolio: Object,
     media: Array
 })
 
-function getImage(myportfolio) {
+const form = useForm({
+    grid_array: ['grid5', 'grid4', 'grid3', 'grid2', 'grid1'],
+    selected_category: 1,
+    galleryimages: props.portfolio.galleryimages == "null" || props.portfolio.galleryimages == null ? [] : JSON.parse(props.portfolio.galleryimages),
 
-    let default_id = myportfolio.default_media_id;
-    if (myportfolio.media.length === 0) {
-        return '/assets//nextebiz-logo.png';
-    }
-    const find_media = myportfolio.media.find((p) => {
-        return p.id == default_id;
-    })
-    if (find_media == undefined) {
-        return myportfolio.media[0]?.original_url;
-    }
-    return find_media?.original_url;
-}
+})
+
+// function getImage(myportfolio) {
+
+//     let default_id = myportfolio.default_media_id;
+//     if (myportfolio.media.length === 0) {
+//         return '/assets//nextebiz-logo.png';
+//     }
+//     const find_media = myportfolio.media.find((p) => {
+//         return p.id == default_id;
+//     })
+//     if (find_media == undefined) {
+//         return myportfolio.media[0]?.original_url;
+//     }
+//     return find_media?.original_url;
+// }
 
 onMounted(() => {
     initFlowbite();
@@ -38,7 +49,7 @@ onMounted(() => {
 <template>
     <AuthenticatedLayout>
 
-        <Head title="Portfolio" />
+        <Head :title="`Portfolio - ${props.portfolio.title}`" />
         <div class="container m-auto px-4 md:px-5 dark:text-white">
             <div class="my-[50px]">
                 <Link href="/portfolio">
@@ -57,11 +68,19 @@ onMounted(() => {
                 <div v-html="portfolio.description" class="mb-5 myck">
                 </div>
 
-                <div>
-                    <h3 class="text-center mb-1">Project Screenshots</h3>
-                    <div class="text-center mb-5 text-2xl">Double tap on image to zoom in/out</div>
-                    <MySwiper :images="media" />
+                <div class="container m-auto mb-5" v-if="form.grid_array.indexOf(props.portfolio.gallerystyle) > -1">
+                    <ImageGrid :images="form.galleryimages" :gallerystyle="props.portfolio.gallerystyle" />
                 </div>
+
+                <div class="container m-auto mb-5" v-if="props.portfolio.gallerystyle == 'carouselauto'">
+                    <CarouselAutoscroll :images="form.galleryimages" />
+                </div>
+
+                <div class="container m-auto mb-5" v-if="props.portfolio.gallerystyle == 'carousel'">
+                    <MySwiper :images="form.galleryimages" />
+                </div>
+
+
 
                 <div class="mt-[50px]">
                     <div class="text-center mb-[20px]">

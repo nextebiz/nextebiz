@@ -27,10 +27,16 @@ class StoreJobCategoryRequest extends FormRequest
             'max' => ['required'],
             'monthly' => ['required'],
             'quarterly' => ['required'],
-            'picture' => ['nullable'],
-            'small_description' => ['required', 'regex:/^[^(|\\]~!%^&*=};:?><’)]*$/'],
-            'description' => ['required', 'regex:/^[^(|\\]~!%^&*=};:?><’)]*$/'],
+            'pictures' => ['nullable'],
             'enabled' => ['required'],
+
         ];
     }
 }
+/*
+
+
+
+            'small_description' => ['required', 'regex:/^[^(|\\]~!%^&*=};:?><’)]*$/'],
+            'description' => ['required', 'regex:/^[^(|\\]~!%^&*=};:?><’)]*$/'],
+*/

@@ -91,7 +91,7 @@ onMounted(() => {
                                 <div v-if="props.errors?.pictures" class="form_error">{{ props.errors?.pictures }}</div>
                             </div>
 
-                            <div class="mb-5">
+                            <div class="mb-5 hidden">
                                 <label for="small_description" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Small Description</label>
 
                                 <textarea id="small_description" v-model="form.small_description"
@@ -101,7 +101,7 @@ onMounted(() => {
 
                             </div>
 
-                            <div class="mb-5">
+                            <div class="mb-5 hidden">
                                 <label for="description" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Portfolio Description</label>
                                 <!-- <textarea id="description" v-model="form.description"
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></textarea> -->

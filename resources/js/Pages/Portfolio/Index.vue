@@ -32,17 +32,12 @@ function getResults(page) {
 
 function getImage(myportfolio) {
 
-    let default_id = myportfolio.default_media_id;
-    if (myportfolio.media.length === 0) {
+    let default_image_url = myportfolio.default_image_url;
+    if (default_image_url == '') {
         return '/assets//nextebiz-logo.png';
     }
-    const find_media = myportfolio.media.find((p) => {
-        return p.id == default_id;
-    })
-    if (find_media == undefined) {
-        return myportfolio.media[0]?.original_url;
-    }
-    return find_media?.original_url;
+
+    return default_image_url;
 }
 
 onMounted(() => {
@@ -88,7 +83,8 @@ onMounted(() => {
                         <Link :href="`/portfolio/${portfolio.slug}`">
                         <div>
                             <div class="p-1 bg-gray-300 dark:bg-gray-800 mb-3">
-                                <div class="bg-gray-200 dark:bg-gray-900  h-[300px] flex" style="background-position: center; background-size: cover;" :style="`background-image:url(${getImage(portfolio)})`"></div>
+                                <div class="bg-gray-200 dark:bg-gray-900  h-[300px] flex" style="background-position: center; background-size: cover;"
+                                :style="`background-image:url(${getImage(portfolio)})`"></div>
                             </div>
 
                         </div>

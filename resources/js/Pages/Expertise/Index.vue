@@ -43,7 +43,8 @@ onMounted(() => {
                             :style="`background-repeat: no-repeat;  background-size: cover;   background-position: center; background-image: url('${category.media[0]?.original_url}');`">
                         </div> -->
                         <div class="mb-3">
-                            <img :src="category.media[0]?.original_url" class="w-full hover:scale-[1.02] transition-all shadow-lg" />
+                            <img :src="category.default_image_url != '' ? category.default_image_url : category.media[0]?.original_url"
+                                class="w-full hover:scale-[1.02] transition-all shadow-lg" />
                         </div>
                         </Link>
                     </div>

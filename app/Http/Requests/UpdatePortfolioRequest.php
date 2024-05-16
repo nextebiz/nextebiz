@@ -25,10 +25,13 @@ class UpdatePortfolioRequest extends FormRequest
             "title" => ['required'],
             "portfolio_category_id" => ['required'],
             'pictures' => ['nullable'],
-            'default_media_id'=>['nullable'],
+            // 'default_media_id'=>['nullable'],
             "small_description" => ['required'],
             "description" => ['required'],
             "enabled" => ['required'],
+            'default_image_url' => ['nullable'],
+            'gallerystyle' => ['required'],
+            'galleryimages' => ['nullable'],
         ];
     }
 }
