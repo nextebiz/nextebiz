@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::table('portfolios', function (Blueprint $table) {
             $table->string('default_image_url')->default('');
-            $table->text('gallerystyle')->nullable();
+            $table->string('gallerystyle')->default('none');
             $table->json('galleryimages')->nullable();
         });
     }
