@@ -10,12 +10,12 @@ const props = defineProps({
     jobpostid: Number
 })
 const form = useForm({
-    name: 'asim',
-    email: 'asim@malik.com',
-    password: 'imranmalik',
-    password_confirmation: 'imranmalik',
-    phone: '03331231234',
-    country: 'Pakistan',
+    name: '',
+    email: '',
+    password: '',
+    password_confirmation: '',
+    phone: '',
+    country: '',
     resume_file: '',
     jobpostid: props.jobpostid
 });
