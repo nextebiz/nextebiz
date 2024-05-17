@@ -1,0 +1,1 @@
+import{_ as a}from"./AuthenticatedLayout-DG4yKezn.js";import e from"./CandidateMenu-kP9I0qD3.js";import{o,b as r,c as s,w as n,r as _,e as i}from"./app-BDR65PKi.js";import"./SettingsStore-T8-kM_U7.js";const d={__name:"CandidateLayout",setup(c){return o(()=>{initFlowbite()}),(t,m)=>(r(),s(a,null,{default:n(()=>[_(t.$slots,"default"),i(e)]),_:3}))}};export{d as default};

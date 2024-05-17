@@ -132,8 +132,8 @@ onMounted(() => {
                     </div>
 
                     <p class="mb-5 font-light text-gray-700 md:text-lg dark:text-gray-200">
-                        Next eBiz is a comprehensive mobile and web app development firm that harnesses cutting-edge technology and digital transformation to provide leading digital solutions for your business needs.
-                        With a global clientele, our dedicated team of mobile app developers delivers top-tier solutions.
+                        At Next ebiz, we implement a comprehensive end-to-end approach to design and develop ultimate web and mobile-based business-ready apps. This ensures quick launches and updates, empowering our
+                        clients to adapt swiftly to the evolving market landscape. We specialize in creating high-quality native interfaces on cross-platforms efficiently and effectively, delivering exceptional results in record time.
                     </p>
 
                     <div class="flex items-center">
