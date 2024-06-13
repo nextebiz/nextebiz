@@ -33,30 +33,27 @@ onMounted(() => {
                             Islamabad, Pakistan.
                         </p>
                         <p class="mb-3">
-                            <strong>Phone / WhatsApp</strong>: +92-3361633321
+                            <strong>Phone / WhatsApp</strong>: <a href="tel:+923361633321">+92-3361633321</a> (Imran Malik)
                         </p>
                         <p class="mb-3">
-                            <strong>Phone / WhatsApp</strong>: +92-3144661771
+                            <strong>Phone / WhatsApp</strong>: <a href="tel:+923005512030">+92-3005512030</a> (Izhar khan)
                         </p>
                         <p class="mb-3">
-                            <strong>Email</strong>: info@nextebiz.com
+                            <strong>Email</strong>: <a href="mailto:info@nextebiz.com">info@nextebiz.com</a>
                         </p>
                     </div>
                     <div>
                         <h4 class="mb-3 border-b border-b-gray-200 dark:border-b-gray-600 pb-3">Next eBiz - Dubai</h4>
                         <p class="mb-3">
-                            LG10, Empire Heights Block A<br />
-                            Hill Road, Phase 6, Bahria Town<br />
-                            Islamabad, Pakistan.
+                            3rd Floor Office #308<br/>
+                            Dusseldorf Business Point - Al Barsha 1 <br/>
+                            Dubai - United Arab Emirates
                         </p>
                         <p class="mb-3">
-                            <strong>Phone / WhatsApp</strong>: +92-3361633321
+                            <strong>Phone / WhatsApp</strong>: <a href="tel:+971509511507">+971-509511507</a>
                         </p>
                         <p class="mb-3">
-                            <strong>Phone / WhatsApp</strong>: +92-3144661771
-                        </p>
-                        <p class="mb-3">
-                            <strong>Email</strong>: info@nextebiz.com
+                            <strong>Email</strong>: <a href="mailto:uae@nextebiz.com">uae@nextebiz.com</a>
                         </p>
                     </div>
                 </div>

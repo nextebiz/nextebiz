@@ -1,0 +1,1 @@
+import{_ as e}from"./_plugin-vue_export-helper-DlAUqK2U.js";import{b as r,j as o}from"./app-DW7o1C7H.js";const c={};function n(t,a){return r(),o("div",null," i am vue preload ")}const f=e(c,[["render",n]]);export{f as default};
